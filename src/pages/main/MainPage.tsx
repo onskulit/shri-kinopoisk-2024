@@ -1,3 +1,3 @@
-export function MainPage() {
-    return <p>Страничка</p>;
-}
+export const MainPage = () => {
+    return <p>Страничка поиска</p>;
+};
