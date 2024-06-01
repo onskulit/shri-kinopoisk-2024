@@ -3,19 +3,17 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-secondary-2);
+  background-color: var(--color-secondary-3);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+  --color-white: #FFFFFF;
+  --color-secondary-1: #333333;
+  --color-secondary-2: #1B1F23;
+  --color-secondary-3: #F5F5F5;
+  --color-primary: #FF5500;
 }
