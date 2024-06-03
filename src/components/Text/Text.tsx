@@ -1,12 +1,29 @@
 import cn from 'classnames';
 import { PropsWithChildren } from 'react';
 import styles from './Text.module.css';
+import { WithClassName } from '@/helpers/types';
 
 type TextProps = {
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
-    className?: string;
-} & PropsWithChildren;
+    as?: 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'p';
+    weight?: 'light' | 'regular' | 'medium' | 'bold' | 'extrabold';
+} & PropsWithChildren &
+    WithClassName;
 
-export const Text = ({ size = 'm', children, className }: TextProps) => {
-    return <p className={cn(className, styles[`text-${size}`])}>{children}</p>;
-};
+export const Text = ({
+    as: Component = 'p',
+    size = 'm',
+    weight = 'regular',
+    children,
+    className,
+}: TextProps) => (
+    <Component
+        className={cn(
+            className,
+            styles[`text-${size}`],
+            styles[`text-${weight}`]
+        )}
+    >
+        {children}
+    </Component>
+);

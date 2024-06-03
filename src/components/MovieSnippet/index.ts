@@ -1,0 +1,1 @@
+export { MovieSnippet } from './MovieSnippet';

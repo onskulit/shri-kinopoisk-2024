@@ -27,3 +27,23 @@
     font-size: 32px;
     line-height: 37.5px;
 }
+
+.text-light {
+    font-weight: 300;
+}
+
+.text-regular {
+    font-weight: 400;
+}
+
+.text-medium {
+    font-weight: 500;
+}
+
+.text-bold {
+    font-weight: 600;
+}
+
+.text-extrabold {
+    font-weight: 700;
+}
