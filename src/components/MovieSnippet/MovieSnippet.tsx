@@ -19,7 +19,7 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
         <BlockWrapper className={styles.container}>
             <img className={styles.poster} src={getMoviePosterUrl(id)} />
             <Header as="h2">{title}</Header>
-            <Text as="span" size="xs" className={styles.genre}>
+            <Text as="span" size="xs" style="italic">
                 {genre}
             </Text>
             <Text as="p" size="xs">
