@@ -1,4 +1,4 @@
-import { apiUrl } from './env';
+import { apiHost } from './env';
 
 export const getMoviePosterUrl = (id: string) =>
-    `${apiUrl}/static/images/${id}.jpeg`;
+    `${apiHost}/static/images/${id}.jpeg`;

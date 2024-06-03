@@ -1,4 +1,4 @@
-import { Movie } from '@/api/movieApi';
+import { Movie } from '@api/movieApi';
 import { FC } from 'react';
 import { MovieSnippet } from '../MovieSnippet';
 import styles from './MovieList.module.css';

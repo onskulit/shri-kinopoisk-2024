@@ -14,18 +14,19 @@ type MovieListParams = {
     page: number;
 };
 
+type MovieListResponse = {
+    search_result: Movie[];
+};
+
 export const movieApi = createApi({
     reducerPath: 'movieApi',
-    baseQuery: fetchBaseQuery({ baseUrl: `${apiUrl}/api/v1/` }),
+    baseQuery: fetchBaseQuery({ baseUrl: apiUrl }),
     endpoints: (builder) => ({
-        getMovieList: builder.query<Movie[], MovieListParams>({
-            query: ({ title, page }) => {
-                if (title) {
-                    return `search?title=${title}&page=${page}`;
-                }
-
-                return `search?page=${page}`;
-            },
+        getMovieList: builder.query<MovieListResponse, MovieListParams>({
+            query: (params) => ({
+                url: 'search',
+                params,
+            }),
         }),
     }),
 });

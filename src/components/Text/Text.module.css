@@ -47,3 +47,11 @@
 .text-extrabold {
     font-weight: 700;
 }
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-normal {
+    font-style: normal;
+}

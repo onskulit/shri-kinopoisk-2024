@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie } from '@api/movieApi';
+import { Header } from '@components/Header';
 import { Text } from '@components/Text';
 import { BlockWrapper } from '@components/BlockWrapper';
 import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl';
@@ -17,9 +18,7 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
     <Link to={`/movie/${id}`}>
         <BlockWrapper className={styles.container}>
             <img className={styles.poster} src={getMoviePosterUrl(id)} />
-            <Text as="h3" size="s" weight="bold">
-                {title}
-            </Text>
+            <Header as="h2">{title}</Header>
             <Text as="span" size="xs" className={styles.genre}>
                 {genre}
             </Text>

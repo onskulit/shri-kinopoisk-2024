@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
 
     return {
         define: {
-            'process.env.API_URL': JSON.stringify(env.API_URL),
+            'process.env.API_HOST': JSON.stringify(env.API_HOST),
         },
         resolve: {
             alias: {
