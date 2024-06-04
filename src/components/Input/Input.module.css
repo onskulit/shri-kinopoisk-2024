@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    color: var(--color-grey);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    border: 1px solid var(--color-gray-light);
+    border-radius: 8px;
+    background: var(--color-white);
+}
+
+.container::-webkit-input-placeholder,
+.container::-moz-placeholder {
+    color: var(--color-grey);
+}
+
+.container:focus,
+.container:hover {
+    outline: 1px solid var(--color-orange);
+}

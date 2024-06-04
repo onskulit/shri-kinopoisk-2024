@@ -1,0 +1,14 @@
+.container {
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: calc(100vh - 48px);
+}
+
+.selectors {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
