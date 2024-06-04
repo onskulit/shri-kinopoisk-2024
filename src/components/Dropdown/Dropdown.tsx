@@ -12,6 +12,8 @@ import styles from './Dropdown.module.css';
 import { Text } from '@components/Text';
 import { dropdownsMountNodeId } from '@helpers/consts';
 
+const ITEMS_MARGIN = 4;
+
 type DropdownProps = {
     items: Record<string, string>;
     selectedKey: string;
@@ -27,12 +29,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
     isLoading,
     setSelectedValue,
 }) => {
-    const { blockRef, show, switchShow, blockStyles } =
-        useShowPortalBlock(dropdownsMountNodeId);
+    const { blockRef, isShown, switchShow, blockStyles } = useShowPortalBlock(
+        dropdownsMountNodeId,
+        ITEMS_MARGIN
+    );
 
     return (
         <div ref={blockRef} className={styles.container} onClick={switchShow}>
-            <div className={cn(styles.text, { [styles.opened]: show })}>
+            <div className={cn(styles.text, { [styles.opened]: isShown })}>
                 {items[selectedKey] ? (
                     <Text size="xxs" as="span">
                         {items[selectedKey]}
@@ -47,17 +51,17 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 ) : (
                     <ArrowIcon
                         className={cn(styles.icon, {
-                            [styles.active]: show,
+                            [styles.active]: isShown,
                         })}
                         width={18}
                         height={18}
-                        color="var(--color-gray)"
+                        color="var(--color-secondary-4)"
                     />
                 )}
             </div>
-            {show && (
+            {isShown && (
                 <Items
-                    show={show}
+                    show={isShown}
                     itemsContainerStyles={blockStyles}
                     items={items}
                     selectedKey={selectedKey}

@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 
-// Создает ноду, если ее нет
+/**
+ * Создает ноду, если ее нет
+ * @param {string} id - id ноды, которую нужно создать.
+ */
 
 export const useCreateNodeWithId = (id: string) => {
     const [mountNode, setMountedNode] = useState(document.getElementById(id));

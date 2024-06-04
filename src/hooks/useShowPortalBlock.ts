@@ -1,17 +1,30 @@
-import { CSSProperties, useCallback, useEffect, useState } from 'react';
+import {
+    CSSProperties,
+    useCallback,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
 
 import { useOuterClick } from './useOuterClick';
 
-// Открывает портал рядом с нужной нодой
+/**
+ * Хук Открывает портал рядом с нужной нодой
+ * @param {string} ignoreNodeId - id ноды, по которой outerClick не будет происходить.
+ * @param {string} topMargin - расстояние от топа портала до блока
+ */
 
-export const useShowPortalBlock = (ignoreNodeId: string) => {
-    const [show, setShow] = useState<boolean>(false);
+export const useShowPortalBlock = (ignoreNodeId: string, topMargin = 0) => {
+    const [isShown, setIsShown] = useState<boolean>(false);
     const [blockStyles, setBlockStyles] = useState<CSSProperties>({});
 
-    const switchShow = useCallback(() => setShow((prev) => !prev), []);
+    const switchShow = useCallback(
+        () => setIsShown((prev) => !prev),
+        [setIsShown]
+    );
 
     const blockRef = useOuterClick<HTMLDivElement>(
-        () => setShow(false),
+        () => setIsShown(false),
         ignoreNodeId
     );
 
@@ -20,7 +33,7 @@ export const useShowPortalBlock = (ignoreNodeId: string) => {
             const bounding = blockRef.current.getBoundingClientRect();
             const elementHeight = bounding.height;
             const left = bounding.left;
-            const top = bounding.top + elementHeight + 4;
+            const top = bounding.top + elementHeight + topMargin;
             const minWidth = bounding.width;
             const width = bounding.width;
 
@@ -32,12 +45,15 @@ export const useShowPortalBlock = (ignoreNodeId: string) => {
                 width: prev?.width ?? width,
             }));
         }
-    }, [show]);
+    }, [isShown]);
 
-    return {
-        blockRef,
-        show,
-        switchShow,
-        blockStyles,
-    };
+    return useMemo(
+        () => ({
+            blockRef,
+            isShown,
+            switchShow,
+            blockStyles,
+        }),
+        [blockRef, blockStyles, isShown, switchShow]
+    );
 };

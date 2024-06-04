@@ -6,8 +6,8 @@
     gap: 2px;
     align-items: flex-start;
     padding: 8px;
-    border: 1px solid var(--color-gray-light);
-    border-radius: 8px;
+    border: 1px solid var(--color-secondary-5);
+    border-radius: var(--border-radius);
     background-color: var(--color-white);
 }
 
@@ -22,11 +22,11 @@
     padding: 12px;
     font-size: 14px;
     line-height: 20px;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     cursor: pointer;
 }
 
 .selected,
 .item:hover {
-    background-color: var(--color-gray-light);
+    background-color: var(--color-secondary-5);
 }

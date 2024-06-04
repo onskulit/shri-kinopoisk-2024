@@ -5,6 +5,7 @@ import { Portal } from '@components/Portal/Portal';
 
 import { dropdownsMountNodeId } from '@helpers/consts';
 import { useCreateNodeWithId } from '@hooks/useCreateNodeWithId';
+import { Text } from '@components/Text';
 
 import styles from './Items.module.css';
 
@@ -34,7 +35,8 @@ export const Items: FC<ItemsProps> = ({
                 style={itemsContainerStyles}
             >
                 {Object.entries(items).map(([key, value]) => (
-                    <li
+                    <Text
+                        as="li"
                         onClick={() => setSelectedValue(key)}
                         className={cn(styles.item, {
                             [styles.selected]: selectedKey === key,
@@ -42,7 +44,7 @@ export const Items: FC<ItemsProps> = ({
                         key={key}
                     >
                         {value}
-                    </li>
+                    </Text>
                 ))}
             </ul>
         </Portal>

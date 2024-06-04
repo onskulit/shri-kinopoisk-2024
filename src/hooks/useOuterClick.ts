@@ -2,7 +2,10 @@ import { useEffect, useRef } from 'react';
 
 import { IsNode } from '@helpers/IsNode';
 
-// Клик вне элемента, ignoreNodeId - id ноды, по которой outerClick не будет происходить
+/**
+ * Хук для клик вне элемента
+ * @param {string} ignoreNodeId - id ноды, по которой outerClick не будет происходить.
+ */
 
 export const useOuterClick = <T extends HTMLElement>(
     callback: () => void,

@@ -15,16 +15,16 @@ export const Spinner: React.FC<SpinnerProps> = ({
     delay = DEFAULT_DELAY,
     size = DEFAULT_SIZE,
 }) => {
-    const [show, setShow] = useState<boolean>(false);
+    const [isShow, setIsShown] = useState<boolean>(false);
 
     useEffect(() => {
-        const timerId = setTimeout(() => setShow(true), delay);
+        const timerId = setTimeout(() => setIsShown(true), delay);
         return () => clearTimeout(timerId);
     }, [delay]);
 
     return (
         <span
-            className={classNames(styles.loader, { [styles.show]: show })}
+            className={classNames(styles.loader, { [styles.show]: isShow })}
             style={{ width: `${size}px`, height: `${size}px` }}
         />
     );
