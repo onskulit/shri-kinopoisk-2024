@@ -37,6 +37,7 @@ export const Items: FC<ItemsProps> = ({
                 {Object.entries(items).map(([key, value]) => (
                     <Text
                         as="li"
+                        size="xxs"
                         onClick={() => setSelectedValue(key)}
                         className={cn(styles.item, {
                             [styles.selected]: selectedKey === key,

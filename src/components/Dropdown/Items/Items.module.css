@@ -20,8 +20,6 @@
     align-items: flex-start;
     width: 100%;
     padding: 12px;
-    font-size: 14px;
-    line-height: 20px;
     border-radius: var(--border-radius);
     cursor: pointer;
 }
