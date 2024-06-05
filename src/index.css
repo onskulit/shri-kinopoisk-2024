@@ -19,7 +19,10 @@
     --color-secondary-5: #e1e3e6;
     --color-primary: #ff5500;
 
-    --border-radius: 8px;
+    --border-radius-m: 8px;
+
+    --z-index-header: 1;
+    --z-index-items: 100;
 }
 
 * {

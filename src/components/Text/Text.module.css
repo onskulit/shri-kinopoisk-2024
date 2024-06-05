@@ -55,3 +55,12 @@
 .text-normal {
     font-style: normal;
 }
+
+.text-dark {
+    color: var(--color-secondary-2);
+}
+
+.text-light {
+    color: var(--color-white);
+}
+
