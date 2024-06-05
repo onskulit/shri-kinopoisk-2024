@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+}
+
+.label {
+    color: var(--color-secondary-2);
+    font-size: 14px;
+    line-height: 20px;
+}

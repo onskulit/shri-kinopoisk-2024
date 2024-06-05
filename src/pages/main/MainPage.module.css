@@ -1,0 +1,8 @@
+.container {
+    display: grid;
+    grid-template-columns: 408px 1fr;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 24px 32px;
+    height: 100%;
+}
