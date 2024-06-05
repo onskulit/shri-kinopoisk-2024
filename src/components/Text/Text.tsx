@@ -5,10 +5,9 @@ import { WithClassName } from '@/helpers/types';
 
 type TextProps = {
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
-    as?: 'span' | 'div' | 'p' | 'li';
+    as?: 'span' | 'div' | 'p';
     weight?: 'light' | 'regular' | 'medium' | 'bold' | 'extrabold';
     style?: 'normal' | 'italic';
-    onClick?: () => void;
 } & PropsWithChildren &
     WithClassName;
 
@@ -19,7 +18,6 @@ export const Text = ({
     style = 'normal',
     children,
     className,
-    ...props
 }: TextProps) => (
     <Component
         className={cn(
@@ -28,7 +26,6 @@ export const Text = ({
             styles[`text-${weight}`],
             styles[`text-${style}`]
         )}
-        {...props}
     >
         {children}
     </Component>
