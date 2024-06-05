@@ -35,17 +35,16 @@ export const Items: FC<ItemsProps> = ({
                 style={itemsContainerStyles}
             >
                 {Object.entries(items).map(([key, value]) => (
-                    <Text
-                        as="li"
-                        size="xxs"
+                    <li
                         onClick={() => setSelectedValue(key)}
                         className={cn(styles.item, {
                             [styles.selected]: selectedKey === key,
                         })}
-                        key={key}
                     >
-                        {value}
-                    </Text>
+                        <Text size="xxs" key={key}>
+                            {value}
+                        </Text>
+                    </li>
                 ))}
             </ul>
         </Portal>
