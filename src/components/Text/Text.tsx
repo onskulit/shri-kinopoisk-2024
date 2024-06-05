@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { PropsWithChildren } from 'react';
 import styles from './Text.module.css';
-import { WithClassName } from '@/helpers/types';
+import { WithClassName } from '@helpers/types';
 
 type TextProps = {
     color?: 'dark' | 'light';

@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { MainPage } from '@pages/main';
 import { MoviePage } from '@pages/movie';
-import { PageHeader } from './components/PageHeader/PageHeader';
+import { PageHeader } from '@components/PageHeader';
 
 const router = createBrowserRouter([
     {

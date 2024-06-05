@@ -1,7 +1,7 @@
 import styles from './AuthorizationControl.module.css';
-import { Button } from '@/components/Button';
-import { Text } from '@/components/Text';
-import { UserIcon } from '@/components/UserIcon';
+import { Button } from '@components/Button';
+import { Text } from '@components/Text';
+import { UserIcon } from '@components/UserIcon';
 import { useCallback } from 'react';
 
 export const AuthorizationControl = () => {
