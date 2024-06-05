@@ -1,0 +1,31 @@
+.button {
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: var(--border-radius-m);
+    transition: 0.2s;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button:hover.button-color-primary {
+    background-color: transparent;
+}
+
+.button-size-s {
+    padding: 10px 16px;
+}
+
+.button-size-m {
+    padding: 10px 16px;
+}
+
+.button-color-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.button-color-transparent {
+    border-color: var(--color-primary);
+}

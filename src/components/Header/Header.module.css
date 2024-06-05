@@ -15,3 +15,7 @@
     line-height: 20px;
     font-weight: 600;
 }
+
+.header-unselectable {
+    user-select: none;
+}

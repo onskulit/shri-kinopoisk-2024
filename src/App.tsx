@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { MainPage } from '@pages/main';
 import { MoviePage } from '@pages/movie';
+import { PageHeader } from './components/PageHeader/PageHeader';
 
 const router = createBrowserRouter([
     {
@@ -14,7 +15,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-    return <RouterProvider router={router} />;
+    return (
+        <>
+            <PageHeader />
+            <RouterProvider router={router} />
+        </>
+    );
 }
 
 export default App;

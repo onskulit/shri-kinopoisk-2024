@@ -4,6 +4,7 @@ import styles from './Text.module.css';
 import { WithClassName } from '@/helpers/types';
 
 type TextProps = {
+    color?: 'dark' | 'light';
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
     as?: 'span' | 'div' | 'p';
     weight?: 'light' | 'regular' | 'medium' | 'bold' | 'extrabold';
@@ -16,6 +17,7 @@ export const Text = ({
     size = 'm',
     weight = 'regular',
     style = 'normal',
+    color = 'dark',
     children,
     className,
 }: TextProps) => (
@@ -24,7 +26,8 @@ export const Text = ({
             className,
             styles[`text-${size}`],
             styles[`text-${weight}`],
-            styles[`text-${style}`]
+            styles[`text-${style}`],
+            styles[`text-${color}`]
         )}
     >
         {children}

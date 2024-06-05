@@ -1,6 +1,6 @@
 .container {
     position: fixed;
-    z-index: 100;
+    z-index: var(--z-index-items);
     display: flex;
     flex-direction: column;
     gap: 2px;
