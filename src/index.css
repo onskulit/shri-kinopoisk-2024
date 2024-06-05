@@ -12,16 +12,18 @@
     -moz-osx-font-smoothing: grayscale;
 
     --color-white: #ffffff;
+    --color-black-transparent: rgba(0, 0, 0, 0.5);
     --color-secondary-1: #333333;
     --color-secondary-2: #1b1f23;
     --color-secondary-3: #f5f5f5;
     --color-secondary-4: #999fa6;
     --color-secondary-5: #e1e3e6;
     --color-primary: #ff5500;
-
+    
     --border-radius-m: 8px;
 
     --z-index-header: 1;
+    --z-index-modal: 2;
     --z-index-items: 100;
 }
 

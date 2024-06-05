@@ -55,7 +55,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                         })}
                         width={18}
                         height={18}
-                        color="var(--color-secondary-4)"
+                        color="secondary-light"
                     />
                 )}
             </div>

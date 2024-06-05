@@ -1,0 +1,55 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-index-modal);
+    overflow: hidden;
+    background-color: var(--color-black-transparent);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.backdropShown {
+    opacity: 1;
+    pointer-events: visible;
+}
+
+.modal {
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-m);
+    transform: translateY(-200px);
+    transition: all 0.3s ease-in-out;
+}
+
+.backdropShown .modal {
+    transform: translateY(0);
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.closeButton {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeButton {
+    cursor: pointer;
+}

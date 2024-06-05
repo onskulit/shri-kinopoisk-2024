@@ -6,7 +6,7 @@ export type IconBaseProps = {
     /**
      * Цвет иконки
      */
-    color: string;
+    color: 'secondary' | 'secondary-light';
 
     /**
      * Ширина иконки
