@@ -6,6 +6,6 @@ import styles from './MainPage.module.css';
 export const MainPage = () => (
     <div className={styles.container}>
         <Filters />
-        {<MovieList />}
+        <MovieList />
     </div>
 );
