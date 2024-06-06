@@ -19,11 +19,6 @@ export type IconBaseProps = {
     height: number;
 
     /**
-     * Управление заблокированным состоянием иконки
-     */
-    disabled?: boolean;
-
-    /**
      * Текст при наведении мышки
      */
     title?: string;

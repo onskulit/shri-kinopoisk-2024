@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Header } from '@components/Header';
 import { Portal } from '@components/Portal';
-import { CrossIcon } from '@components/CrossIcon/CrossIcon';
+import { CrossIcon } from '@components/CrossIcon';
 
 import styles from './Modal.module.css';
 
