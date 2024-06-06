@@ -1,16 +1,20 @@
-import { Movie } from '@api/movieApi';
 import { FC } from 'react';
 import { MovieSnippet } from '../MovieSnippet';
 import styles from './MovieList.module.css';
+import { useGetMovies } from '@api/hooks';
 
-type MovieListProps = {
-    movieList: Movie[];
+export const MovieList: FC = () => {
+    const { movies } = useGetMovies();
+
+    if (!movies) {
+        return null;
+    }
+
+    return (
+        <section className={styles.container}>
+            {movies.map((movie) => (
+                <MovieSnippet key={movie.id} {...movie} />
+            ))}
+        </section>
+    );
 };
-
-export const MovieList: FC<MovieListProps> = ({ movieList }) => (
-    <section className={styles.container}>
-        {movieList.map((movie) => (
-            <MovieSnippet key={movie.id} {...movie} />
-        ))}
-    </section>
-);
