@@ -5,7 +5,7 @@ import { SelectWrapper } from '@components/SelectWrapper/SelectWrapper';
 import { useAppDispatch } from '@store/store';
 import { setTitle } from '@store/search/searchSlice';
 import { useSearchParams } from 'react-router-dom';
-import { debounce } from '@/helpers/debounce';
+import { debounce } from '@helpers/debounce';
 
 export const TitleFilter: FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();
