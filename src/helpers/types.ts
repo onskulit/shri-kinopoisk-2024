@@ -6,7 +6,7 @@ export type IconBaseProps = {
     /**
      * Цвет иконки
      */
-    color: string;
+    color: 'secondary' | 'secondary-light';
 
     /**
      * Ширина иконки
@@ -17,11 +17,6 @@ export type IconBaseProps = {
      * Высота иконки
      */
     height: number;
-
-    /**
-     * Управление заблокированным состоянием иконки
-     */
-    disabled?: boolean;
 
     /**
      * Текст при наведении мышки
