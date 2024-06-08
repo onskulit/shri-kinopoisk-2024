@@ -1,31 +1,31 @@
 import { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { RootState } from '@store/store';
 import {
-    closeAuthorizationModal,
     openAuthorizationModal,
+    setIsAuthorized,
 } from '@store/authorizationSlice';
-import { Modal } from '@components/Modal';
+import { useAppDispatch, useAppSelector } from '@store/store';
 import { Button } from '@components/Button';
 import { Text } from '@components/Text';
 import { UserIcon } from '@components/UserIcon';
+import { AuthorizationModal } from '@components/AuthorizationModal';
+import { LocalStorageKey } from '@helpers/localStorage';
 
 import styles from './AuthorizationControl.module.css';
 
 export const AuthorizationControl = () => {
-    const isModalOpen = useSelector(
-        (state: RootState) => state.authorization.isOpen
+    const dispatch = useAppDispatch();
+    const isAuthorized = useAppSelector(
+        (state) => state.authorization.isAuthorized
     );
-    const dispatch = useDispatch();
 
     const onButtonClick = useCallback(() => {
-        dispatch(openAuthorizationModal());
-    }, [dispatch]);
-
-    const onModalClose = useCallback(() => {
-        dispatch(closeAuthorizationModal());
-    }, [dispatch]);
+        if (isAuthorized) {
+            localStorage.removeItem(LocalStorageKey.Token);
+            dispatch(setIsAuthorized(false));
+        } else {
+            dispatch(openAuthorizationModal());
+        }
+    }, [dispatch, isAuthorized]);
 
     return (
         <>
@@ -33,17 +33,11 @@ export const AuthorizationControl = () => {
                 <UserIcon />
                 <Button color="primary" size="m" onClick={onButtonClick}>
                     <Text size="s" color="light" weight="medium">
-                        Войти
+                        {isAuthorized ? 'Выйти' : 'Войти'}
                     </Text>
                 </Button>
+                <AuthorizationModal />
             </div>
-            <Modal
-                isOpen={isModalOpen}
-                title={'Авторизация'}
-                onClose={onModalClose}
-            >
-                Форма авторизации
-            </Modal>
         </>
     );
 };

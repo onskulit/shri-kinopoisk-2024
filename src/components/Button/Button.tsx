@@ -8,6 +8,7 @@ type ButtonProps = {
     size: 's' | 'm';
     color: 'primary' | 'transparent';
     onClick: () => void;
+    isDisabled?: boolean;
 } & PropsWithChildren &
     WithClassName;
 
@@ -16,6 +17,7 @@ export const Button = ({
     size,
     color,
     className,
+    isDisabled,
     onClick,
 }: ButtonProps) => (
     <button
@@ -23,8 +25,12 @@ export const Button = ({
             className,
             styles.button,
             styles[`button-size-${size}`],
-            styles[`button-color-${color}`]
+            styles[`button-color-${color}`],
+            {
+                [styles['button-disabled']]: isDisabled,
+            }
         )}
+        disabled={isDisabled}
         onClick={onClick}
     >
         {children}

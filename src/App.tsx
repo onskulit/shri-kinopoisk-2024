@@ -1,7 +1,11 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { useEffect } from 'react';
 import { MainPage } from '@pages/main';
 import { MoviePage } from '@pages/movie';
 import { PageHeader } from '@components/PageHeader';
+import { useAppDispatch } from '@store/store';
+import { setIsAuthorized } from '@store/authorizationSlice';
+import { LocalStorageKey } from '@helpers/localStorage';
 
 const router = createBrowserRouter([
     {
@@ -15,6 +19,14 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        if (localStorage.getItem(LocalStorageKey.Token)) {
+            dispatch(setIsAuthorized(true));
+        }
+    }, []);
+
     return (
         <>
             <PageHeader />

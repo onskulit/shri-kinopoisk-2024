@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { IconBaseProps } from '@helpers/types';
 import { iconColorsMapper } from '@helpers/iconColors';
 
-//TODO: переделать определение цвета
 export const ArrowIcon: FC<IconBaseProps> = ({
     color,
     width,
