@@ -1,5 +1,9 @@
 .container {
     width: 100%;
+}
+
+.input {
+    width: 100%;
     padding: 10px 16px;
     box-sizing: border-box;
     color: var(--color-grey);
@@ -11,12 +15,12 @@
     background: var(--color-white);
 }
 
-.container::-webkit-input-placeholder,
-.container::-moz-placeholder {
+.input::-webkit-input-placeholder,
+.input::-moz-placeholder {
     color: var(--color-grey);
 }
 
-.container:focus,
-.container:hover {
+.input:focus,
+.input:hover {
     outline: 1px solid var(--color-orange);
 }

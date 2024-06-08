@@ -4,7 +4,7 @@ import styles from './Text.module.css';
 import { WithClassName } from '@helpers/types';
 
 type TextProps = {
-    color?: 'dark' | 'light';
+    color?: 'dark' | 'light' | 'error';
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
     as?: 'span' | 'div' | 'p';
     weight?: 'light' | 'regular' | 'medium' | 'bold' | 'extrabold';

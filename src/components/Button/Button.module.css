@@ -9,10 +9,6 @@
     cursor: pointer;
 }
 
-.button:hover.button-color-primary {
-    background-color: transparent;
-}
-
 .button-size-s {
     padding: 10px 16px;
 }
@@ -28,4 +24,17 @@
 
 .button-color-transparent {
     border-color: var(--color-primary);
+}
+
+.button-disabled {
+    background-color: var(--color-secondary-5);
+    border-color: var(--color-secondary-5);
+}
+
+.button-disabled:hover {
+    cursor: inherit;
+}
+
+.button-disabled:hover.button-color-primary {
+    background-color: var(--color-secondary-5);
 }
