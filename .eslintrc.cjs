@@ -16,18 +16,30 @@ module.exports = {
         ],
         'simple-import-sort/imports': 'error',
         'simple-import-sort/exports': 'error',
+        '@typescript-eslint/no-unused-vars': [
+            'error',
+            {
+                args: 'all',
+                argsIgnorePattern: '^_',
+                caughtErrors: 'all',
+                caughtErrorsIgnorePattern: '^_',
+                destructuredArrayIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+                ignoreRestSiblings: true,
+            },
+        ],
     },
-    'overrides': [
+    overrides: [
         // override "simple-import-sort" config
         {
-            'files': ['*.js', '*.jsx', '*.ts', '*.tsx'],
-            'rules': {
+            files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+            rules: {
                 'simple-import-sort/imports': [
                     'error',
                     {
-                        'groups': [
+                        groups: [
                             // Packages `react` related packages and external/builtin packages come first.
-                            ['^react', '^\/?\\w'],
+                            ['^react', '^/?\\w'],
                             // Internal packages.
                             ['^@?\\w'],
                             // Side effect imports.

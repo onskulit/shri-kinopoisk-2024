@@ -1,10 +1,10 @@
 .container {
     position: sticky;
-    top: 24px;
+    top: 108px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: calc(100vh - 48px);
+    height: calc(100vh - 132px);
 }
 
 .selectors {

@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { Portal } from '@components/Portal/Portal';
 import { Text } from '@components/Text';
-import { dropdownsMountNodeId } from '@helpers/consts';
+import { DROPDOWNS_MOUNT_NODE_ID } from '@helpers/consts';
 import { useCreateNodeWithId } from '@hooks/useCreateNodeWithId';
 
 import styles from './Items.module.css';
@@ -12,7 +12,7 @@ type ItemsProps = {
     show: boolean;
     itemsContainerStyles: CSSProperties;
     items: Record<string, string>;
-    selectedKey: string;
+    selectedKey?: string;
     setSelectedValue: (key: string) => void;
 } & PropsWithChildren;
 
@@ -23,7 +23,7 @@ export const Items: FC<ItemsProps> = ({
     selectedKey,
     setSelectedValue,
 }) => {
-    const node = useCreateNodeWithId(dropdownsMountNodeId);
+    const node = useCreateNodeWithId(DROPDOWNS_MOUNT_NODE_ID);
 
     return (
         <Portal mountElement={node}>
@@ -35,6 +35,7 @@ export const Items: FC<ItemsProps> = ({
             >
                 {Object.entries(items).map(([key, value]) => (
                     <li
+                        key={key}
                         onClick={() => setSelectedValue(key)}
                         className={cn(styles.item, {
                             [styles.selected]: selectedKey === key,

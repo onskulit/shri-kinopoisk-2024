@@ -3,6 +3,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 type MovieListParams = {
     title?: string;
+    genre?: string;
+    release_year?: string;
     page: number;
 };
 
