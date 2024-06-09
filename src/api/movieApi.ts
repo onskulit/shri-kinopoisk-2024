@@ -1,21 +1,32 @@
 import { apiUrl } from '@helpers/env';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export type Movie = {
-    id: string;
-    title: string;
-    description: string;
-    genre: string;
-    release_year: number;
-};
-
 type MovieListParams = {
     title?: string;
     page: number;
 };
 
+export type MovieId = string;
+export type Movie = {
+    id: MovieId;
+    title: string;
+    description: string;
+    genre: string;
+    release_year: number;
+    rating: number;
+};
+
 type MovieListResponse = {
     search_result: Movie[];
+};
+
+export type SpecificMovie = Movie & {
+    actors: Actor[];
+};
+
+export type Actor = {
+    name: string;
+    photo: string;
 };
 
 export const movieApi = createApi({
@@ -28,7 +39,10 @@ export const movieApi = createApi({
                 params,
             }),
         }),
+        getMovieById: builder.query<SpecificMovie, MovieId>({
+            query: (id) => `movie/${id}`,
+        }),
     }),
 });
 
-export const { useGetMovieListQuery } = movieApi;
+export const { useGetMovieListQuery, useGetMovieByIdQuery } = movieApi;

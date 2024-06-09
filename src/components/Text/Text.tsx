@@ -27,7 +27,7 @@ export const Text = ({
             styles[`text-${size}`],
             styles[`text-${weight}`],
             styles[`text-${style}`],
-            styles[`text-${color}`]
+            styles[`text-color-${color}`]
         )}
     >
         {children}

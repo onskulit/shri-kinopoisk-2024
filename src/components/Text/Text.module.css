@@ -56,11 +56,11 @@
     font-style: normal;
 }
 
-.text-dark {
+.text-color-dark {
     color: var(--color-secondary-2);
 }
 
-.text-light {
+.text-color-light {
     color: var(--color-white);
 }
 
