@@ -1,10 +1,11 @@
-import { WithClassName } from '@helpers/types.ts';
-import styles from './MovieOverview.module.css';
 import { ImageSnippet } from '@components/ImageSnippet';
-import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl.ts';
 import { MovieDescription } from '@components/MovieDescription';
-import cn from 'classnames';
+import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl.ts';
+import { WithClassName } from '@helpers/types.ts';
 import { useGetMovieById } from '@hooks/useGetMovieById.ts';
+import cn from 'classnames';
+
+import styles from './MovieOverview.module.css';
 
 type MovieOverviewProps = WithClassName;
 

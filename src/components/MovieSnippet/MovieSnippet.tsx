@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie } from '@api/movieApi';
+import { BlockWrapper } from '@components/BlockWrapper';
 import { Header } from '@components/Header';
 import { Text } from '@components/Text';
-import { BlockWrapper } from '@components/BlockWrapper';
 import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl';
+
 import styles from './MovieSnippet.module.css';
 
 type MovieSnippetProps = Movie;

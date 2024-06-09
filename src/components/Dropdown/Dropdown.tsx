@@ -1,16 +1,14 @@
-import cn from 'classnames';
 import React from 'react';
-
-import { Spinner } from '@components/Spinner';
 import { ArrowIcon } from '@components/ArrowIcon';
-
+import { Spinner } from '@components/Spinner';
+import { Text } from '@components/Text';
+import { dropdownsMountNodeId } from '@helpers/consts';
 import { useShowPortalBlock } from '@hooks/useShowPortalBlock';
+import cn from 'classnames';
 
 import { Items } from './Items';
 
 import styles from './Dropdown.module.css';
-import { Text } from '@components/Text';
-import { dropdownsMountNodeId } from '@helpers/consts';
 
 const ITEMS_MARGIN = 4;
 

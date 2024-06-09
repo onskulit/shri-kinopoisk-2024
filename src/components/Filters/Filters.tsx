@@ -1,8 +1,7 @@
 import { FC } from 'react';
-
 import { BlockWrapper } from '@components/BlockWrapper/BlockWrapper';
-
 import { Header } from '@components/Header';
+
 import { GenresFilter } from './GenresFilter';
 import { RatingFilter } from './RatingFilter';
 import { TitleFilter } from './TitleFilter';

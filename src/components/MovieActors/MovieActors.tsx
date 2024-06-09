@@ -1,9 +1,10 @@
-import { WithClassName } from '@helpers/types.ts';
-import styles from './MovieActors.module.css';
-import { Text } from '@components/Text';
 import { ActorsList } from '@components/ActorsList';
-import cn from 'classnames';
+import { Text } from '@components/Text';
+import { WithClassName } from '@helpers/types.ts';
 import { useGetMovieActors } from '@hooks/useGetMovieActors.ts';
+import cn from 'classnames';
+
+import styles from './MovieActors.module.css';
 
 type MovieActorsProps = WithClassName;
 

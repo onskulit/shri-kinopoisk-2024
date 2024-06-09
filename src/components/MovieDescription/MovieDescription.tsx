@@ -1,9 +1,10 @@
-import { WithClassName } from '@helpers/types.ts';
-import styles from './MovieDescription.module.css';
-import { Text } from '@components/Text';
-import cn from 'classnames';
-import { Row } from '@components/Row';
 import { SpecificMovie } from '@api/movieApi.ts';
+import { Row } from '@components/Row';
+import { Text } from '@components/Text';
+import { WithClassName } from '@helpers/types.ts';
+import cn from 'classnames';
+
+import styles from './MovieDescription.module.css';
 
 type MovieDescriptionProps = WithClassName & {
     movie: SpecificMovie;

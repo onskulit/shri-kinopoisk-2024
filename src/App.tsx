@@ -1,11 +1,11 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useEffect } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { PageHeader } from '@components/PageHeader';
+import { LocalStorageKey } from '@helpers/localStorage';
 import { MainPage } from '@pages/main';
 import { MoviePage } from '@pages/movie';
-import { PageHeader } from '@components/PageHeader';
-import { useAppDispatch } from '@store/store';
 import { setIsAuthorized } from '@store/authorizationSlice';
-import { LocalStorageKey } from '@helpers/localStorage';
+import { useAppDispatch } from '@store/store';
 
 const router = createBrowserRouter([
     {

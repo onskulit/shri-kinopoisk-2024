@@ -1,11 +1,9 @@
-import cn from 'classnames';
-import { FC, CSSProperties, PropsWithChildren } from 'react';
-
+import { CSSProperties, FC, PropsWithChildren } from 'react';
 import { Portal } from '@components/Portal/Portal';
-
+import { Text } from '@components/Text';
 import { dropdownsMountNodeId } from '@helpers/consts';
 import { useCreateNodeWithId } from '@hooks/useCreateNodeWithId';
-import { Text } from '@components/Text';
+import cn from 'classnames';
 
 import styles from './Items.module.css';
 

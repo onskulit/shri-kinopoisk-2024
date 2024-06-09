@@ -1,14 +1,14 @@
 import { useCallback } from 'react';
+import { AuthorizationModal } from '@components/AuthorizationModal';
+import { Button } from '@components/Button';
+import { Text } from '@components/Text';
+import { UserIcon } from '@components/UserIcon';
+import { LocalStorageKey } from '@helpers/localStorage';
 import {
     openAuthorizationModal,
     setIsAuthorized,
 } from '@store/authorizationSlice';
 import { useAppDispatch, useAppSelector } from '@store/store';
-import { Button } from '@components/Button';
-import { Text } from '@components/Text';
-import { UserIcon } from '@components/UserIcon';
-import { AuthorizationModal } from '@components/AuthorizationModal';
-import { LocalStorageKey } from '@helpers/localStorage';
 
 import styles from './AuthorizationControl.module.css';
 

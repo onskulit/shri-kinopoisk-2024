@@ -1,8 +1,8 @@
-import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
+import { WithClassName } from '@helpers/types.ts';
+import classNames from 'classnames';
 
 import styles from './Spinner.module.css';
-import { WithClassName } from '@helpers/types.ts';
 
 const DEFAULT_SIZE = 100;
 const DEFAULT_DELAY = 100;

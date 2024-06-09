@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { WithClassName } from '@helpers/types.ts';
 import cn from 'classnames';
+
 import styles from './PageBlockItem.module.css';
 
 type PageBlockItemProps = PropsWithChildren & WithClassName;

@@ -1,8 +1,9 @@
-import { WithClassName } from '@helpers/types.ts';
 import { Actor } from '@api/movieApi.ts';
-import styles from './ActorsList.module.css';
-import cn from 'classnames';
 import { ActorSnippet } from '@components/ActorSnippet';
+import { WithClassName } from '@helpers/types.ts';
+import cn from 'classnames';
+
+import styles from './ActorsList.module.css';
 
 type ActorsListProps = WithClassName & {
     actorsList: Actor[];

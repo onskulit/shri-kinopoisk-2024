@@ -1,7 +1,8 @@
 import { PropsWithChildren } from 'react';
 import { WithClassName } from '@helpers/types.ts';
-import styles from './Row.module.css';
 import cn from 'classnames';
+
+import styles from './Row.module.css';
 
 type RowProps = PropsWithChildren & WithClassName;
 

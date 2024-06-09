@@ -1,7 +1,8 @@
 import { Actor } from '@api/movieApi.ts';
 import { ImageSnippet } from '@components/ImageSnippet';
-import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl.ts';
 import { Text } from '@components/Text';
+import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl.ts';
+
 import styles from './ActorSnippet.module.css';
 
 type ActorsListProps = {

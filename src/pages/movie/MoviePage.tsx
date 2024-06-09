@@ -1,10 +1,11 @@
-import styles from './MoviePage.module.css';
-import { PageBlockItem } from '@components/PageBlockItem';
-import { PageBlocks } from '@components/PageBlocks';
 import { MovieActors } from '@components/MovieActors';
 import { MovieOverview } from '@components/MovieOverview';
+import { PageBlockItem } from '@components/PageBlockItem';
+import { PageBlocks } from '@components/PageBlocks';
 import { Spinner } from '@components/Spinner';
 import { useGetMovieById } from '@hooks/useGetMovieById.ts';
+
+import styles from './MoviePage.module.css';
 
 export const MoviePage = () => {
     const { isLoading, isError } = useGetMovieById();

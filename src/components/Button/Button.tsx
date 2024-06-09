@@ -1,6 +1,6 @@
-import cn from 'classnames';
 import { PropsWithChildren } from 'react';
 import { WithClassName } from '@helpers/types';
+import cn from 'classnames';
 
 import styles from './Button.module.css';
 

@@ -1,6 +1,6 @@
 import { AuthorizationParams, loginUserMutation } from '@api/authorizationApi';
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LocalStorageKey } from '@helpers/localStorage';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AuthorizationState {
     isOpen: boolean;
