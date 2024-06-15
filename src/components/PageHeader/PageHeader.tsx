@@ -1,5 +1,6 @@
-import { Header } from '@components/Header';
 import cn from 'classnames';
+
+import { Header } from '@components/Header';
 
 import { AuthorizationControl } from './AuthorizationControl/AuthorizationControl';
 

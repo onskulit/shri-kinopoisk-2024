@@ -1,9 +1,10 @@
+import cn from 'classnames';
+
 import { ImageSnippet } from '@components/ImageSnippet';
 import { MovieDescription } from '@components/MovieDescription';
-import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl.ts';
-import { WithClassName } from '@helpers/types.ts';
-import { useGetMovieById } from '@hooks/useGetMovieById.ts';
-import cn from 'classnames';
+import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl';
+import { WithClassName } from '@helpers/types';
+import { useGetMovieById } from '@hooks/useGetMovieById';
 
 import styles from './MovieOverview.module.css';
 

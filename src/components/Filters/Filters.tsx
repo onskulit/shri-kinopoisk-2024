@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { BlockWrapper } from '@components/BlockWrapper/BlockWrapper';
 import { Header } from '@components/Header';
 

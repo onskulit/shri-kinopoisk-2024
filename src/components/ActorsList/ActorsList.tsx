@@ -1,7 +1,8 @@
-import { Actor } from '@api/movieApi.ts';
-import { ActorSnippet } from '@components/ActorSnippet';
-import { WithClassName } from '@helpers/types.ts';
 import cn from 'classnames';
+
+import { Actor } from '@api/movieApi';
+import { ActorSnippet } from '@components/ActorSnippet';
+import { WithClassName } from '@helpers/types';
 
 import styles from './ActorsList.module.css';
 

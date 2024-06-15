@@ -3,7 +3,7 @@ import { MovieOverview } from '@components/MovieOverview';
 import { PageBlockItem } from '@components/PageBlockItem';
 import { PageBlocks } from '@components/PageBlocks';
 import { Spinner } from '@components/Spinner';
-import { useGetMovieById } from '@hooks/useGetMovieById.ts';
+import { useGetMovieById } from '@hooks/useGetMovieById';
 
 import styles from './MoviePage.module.css';
 

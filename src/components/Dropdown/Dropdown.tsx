@@ -1,10 +1,11 @@
 import React from 'react';
+import cn from 'classnames';
+
 import { ArrowIcon } from '@components/ArrowIcon';
 import { Spinner } from '@components/Spinner';
 import { Text } from '@components/Text';
 import { dropdownsMountNodeId } from '@helpers/consts';
 import { useShowPortalBlock } from '@hooks/useShowPortalBlock';
-import cn from 'classnames';
 
 import { Items } from './Items';
 

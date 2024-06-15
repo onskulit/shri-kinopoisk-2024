@@ -1,4 +1,4 @@
-import { useCallback,useRef } from 'react';
+import { useCallback, useRef } from 'react';
 
 export const useDebouncedCallback = <Params extends unknown[]>(
     func: (...args: Params) => unknown,

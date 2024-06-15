@@ -1,8 +1,9 @@
-import { SpecificMovie } from '@api/movieApi.ts';
+import cn from 'classnames';
+
+import { SpecificMovie } from '@api/movieApi';
 import { Row } from '@components/Row';
 import { Text } from '@components/Text';
-import { WithClassName } from '@helpers/types.ts';
-import cn from 'classnames';
+import { WithClassName } from '@helpers/types';
 
 import styles from './MovieDescription.module.css';
 

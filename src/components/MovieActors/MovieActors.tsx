@@ -1,8 +1,9 @@
+import cn from 'classnames';
+
 import { ActorsList } from '@components/ActorsList';
 import { Text } from '@components/Text';
-import { WithClassName } from '@helpers/types.ts';
-import { useGetMovieActors } from '@hooks/useGetMovieActors.ts';
-import cn from 'classnames';
+import { WithClassName } from '@helpers/types';
+import { useGetMovieActors } from '@hooks/useGetMovieActors';
 
 import styles from './MovieActors.module.css';
 

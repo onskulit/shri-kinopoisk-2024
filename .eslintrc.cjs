@@ -26,10 +26,10 @@ module.exports = {
                     'error',
                     {
                         'groups': [
-                            // Packages `react` related packages come first.
-                            ['^react', '^@?\\w'],
+                            // Packages `react` related packages and external/builtin packages come first.
+                            ['^react', '^\/?\\w'],
                             // Internal packages.
-                            ['^(@|components)(/.*|$)'],
+                            ['^@?\\w'],
                             // Side effect imports.
                             ['^\\u0000'],
                             // Parent imports. Put `..` last.

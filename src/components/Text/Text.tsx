@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react';
-import { WithClassName } from '@helpers/types';
 import cn from 'classnames';
+
+import { WithClassName } from '@helpers/types';
 
 import styles from './Text.module.css';
 
@@ -25,9 +26,9 @@ export const Text = ({
     <Component
         className={cn(
             className,
-            styles[`text-${size}`],
-            styles[`text-${weight}`],
-            styles[`text-${style}`],
+            styles[`text-size-${size}`],
+            styles[`text-weight-${weight}`],
+            styles[`text-style-${style}`],
             styles[`text-color-${color}`]
         )}
     >

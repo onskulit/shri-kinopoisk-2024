@@ -1,6 +1,8 @@
+import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetMovieByIdQuery } from '@api/movieApi.ts';
-import { assertIsDefined } from '@helpers/shared.ts';
+
+import { useGetMovieByIdQuery } from '@api/movieApi';
+import { assertIsDefined } from '@helpers/typesHelpers';
 
 export const useGetMovieById = () => {
     const { id } = useParams();
@@ -9,9 +11,8 @@ export const useGetMovieById = () => {
 
     const { data, isLoading, isError } = useGetMovieByIdQuery(id);
 
-    if (!isLoading && !data) {
-        return { isError: true };
-    }
-
-    return { movie: data, isLoading, isError };
+    return useMemo(
+        () => ({ movie: data, isLoading, isError }),
+        [data, isLoading, isError]
+    );
 };

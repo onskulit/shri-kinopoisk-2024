@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { WithClassName } from '@helpers/types.ts';
 import classNames from 'classnames';
+
+import { WithClassName } from '@helpers/types';
 
 import styles from './Spinner.module.css';
 
@@ -17,7 +18,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
     size = DEFAULT_SIZE,
     className,
 }) => {
-    const [isShow, setIsShown] = useState<boolean>(false);
+    const [isShown, setIsShown] = useState<boolean>(false);
 
     useEffect(() => {
         const timerId = setTimeout(() => setIsShown(true), delay);
@@ -27,7 +28,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
     return (
         <span
             className={classNames(styles.loader, className, {
-                [styles.show]: isShow,
+                [styles.show]: isShown,
             })}
             style={{ width: `${size}px`, height: `${size}px` }}
         />

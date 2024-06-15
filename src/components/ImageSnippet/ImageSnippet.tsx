@@ -1,29 +1,25 @@
-import { CSSProperties, ImgHTMLAttributes } from 'react';
+import { ImgHTMLAttributes } from 'react';
+import cn from 'classnames';
 
-type ImageSizes = 'm' | 'l' | 'xl'
-const SizeMapper: Record<ImageSizes, CSSProperties> = {
-    m: {
-        borderRadius: 'var(--border-radius-m)',
-        maxWidth: 150,
-    },
-    l: {
-        borderRadius: 'var(--border-radius-l)',
-        maxWidth: 200,
-    },
-    xl: {
-        borderRadius: 'var(--border-radius-xl)',
-        maxWidth: 350,
-    },
-};
+import { WithClassName } from '@helpers/types.ts';
 
-type ImageSnippetProps = ImgHTMLAttributes<HTMLImageElement> & {
-    size: ImageSizes;
-    alt: string;
-};
+import styles from './ImageSnippet.module.css';
+
+type ImageSnippetProps = ImgHTMLAttributes<HTMLImageElement> &
+    WithClassName & {
+        size: 'm' | 'l' | 'xl';
+        alt: string;
+    };
 
 export const ImageSnippet = (props: ImageSnippetProps) => {
-    const { size, alt } = props;
-    const styles = SizeMapper[size];
+    const { size, alt, className } = props;
 
-    return <img {...props} style={styles} alt={alt} />;
+    return (
+        <img
+            {...props}
+            className={cn(className, styles[`size-${size}`])}
+            style={styles}
+            alt={alt}
+        />
+    );
 };

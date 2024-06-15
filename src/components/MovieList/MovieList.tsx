@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { useGetMovies } from '@api/hooks';
 
 import { MovieSnippet } from '../MovieSnippet';

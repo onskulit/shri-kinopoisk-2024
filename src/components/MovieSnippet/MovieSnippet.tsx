@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+
 import { Movie } from '@api/movieApi';
 import { BlockWrapper } from '@components/BlockWrapper';
 import { Header } from '@components/Header';

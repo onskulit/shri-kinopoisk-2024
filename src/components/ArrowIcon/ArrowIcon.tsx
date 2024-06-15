@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { iconColorsMapper } from '@helpers/iconColors';
 import { IconBaseProps } from '@helpers/types';
 

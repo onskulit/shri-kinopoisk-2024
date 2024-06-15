@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+
 import { AuthorizationModal } from '@components/AuthorizationModal';
 import { Button } from '@components/Button';
 import { Text } from '@components/Text';
