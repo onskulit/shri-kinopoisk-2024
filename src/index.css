@@ -22,6 +22,8 @@
     --color-error: #ff0000;
     
     --border-radius-m: 8px;
+    --border-radius-l: 12px;
+    --border-radius-xl: 16px;
 
     --z-index-header: 1;
     --z-index-modal: 2;

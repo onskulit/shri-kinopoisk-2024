@@ -1,7 +1,10 @@
 import { FC } from 'react';
-import { MovieSnippet } from '../MovieSnippet';
-import styles from './MovieList.module.css';
+
 import { useGetMovies } from '@api/hooks';
+
+import { MovieSnippet } from '../MovieSnippet';
+
+import styles from './MovieList.module.css';
 
 export const MovieList: FC = () => {
     const { movies } = useGetMovies();

@@ -1,11 +1,12 @@
 import React, { PropsWithChildren } from 'react';
 import cn from 'classnames';
 
+import { CrossIcon } from '@components/CrossIcon';
 import { Header } from '@components/Header';
 import { Portal } from '@components/Portal';
-import { CrossIcon } from '@components/CrossIcon';
 
 import styles from './Modal.module.css';
+
 
 type ModalProps = {
     isOpen: boolean;

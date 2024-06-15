@@ -1,11 +1,11 @@
 import { FC, useCallback, useLayoutEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { Input } from '@components/Input/Input';
 import { SelectWrapper } from '@components/SelectWrapper';
-import { useAppDispatch } from '@store/store';
-import { setTitle } from '@store/search/searchSlice';
-import { useSearchParams } from 'react-router-dom';
 import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
+import { setTitle } from '@store/search/searchSlice';
+import { useAppDispatch } from '@store/store';
 
 export const TitleFilter: FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();

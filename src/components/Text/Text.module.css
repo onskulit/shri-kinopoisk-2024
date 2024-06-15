@@ -1,66 +1,66 @@
-.text-xxs {
+.text-size-xxs {
     font-size: 14px;
     line-height: 20px;
 }
 
-.text-xs {
+.text-size-xs {
     font-size: 16px;
     line-height: 24px;
 }
 
-.text-s {
+.text-size-s {
     font-size: 20px;
     line-height: 32px;
 }
 
-.text-m {
+.text-size-m {
     font-size: 24px;
     line-height: 32px;
 }
 
-.text-l {
+.text-size-l {
     font-size: 28px;
     line-height: 34px;
 }
 
-.text-xl {
+.text-size-xl {
     font-size: 32px;
     line-height: 37.5px;
 }
 
-.text-light {
+.text-weight-light {
     font-weight: 300;
 }
 
-.text-regular {
+.text-weight-regular {
     font-weight: 400;
 }
 
-.text-medium {
+.text-weight-medium {
     font-weight: 500;
 }
 
-.text-bold {
+.text-weight-bold {
     font-weight: 600;
 }
 
-.text-extrabold {
+.text-weight-extrabold {
     font-weight: 700;
 }
 
-.text-italic {
+.text-style-italic {
     font-style: italic;
 }
 
-.text-normal {
+.text-style-normal {
     font-style: normal;
 }
 
-.text-dark {
+.text-color-dark {
     color: var(--color-secondary-2);
 }
 
-.text-light {
+.text-color-light {
     color: var(--color-white);
 }
 

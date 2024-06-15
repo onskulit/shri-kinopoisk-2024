@@ -1,8 +1,9 @@
-import cn from 'classnames';
 import { FC, MutableRefObject, PropsWithChildren } from 'react';
+import cn from 'classnames';
+
+import { WithClassName } from '@helpers/types';
 
 import styles from './BlockWrapper.module.css';
-import { WithClassName } from '@helpers/types';
 
 type BlockWrapperProps = {
     blockRef?: MutableRefObject<HTMLElement>;

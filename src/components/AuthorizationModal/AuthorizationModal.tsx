@@ -1,10 +1,10 @@
 import { useCallback, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '@store/store';
-import { closeAuthorizationModal, loginUser } from '@store/authorizationSlice';
-import { Modal } from '@components/Modal';
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
+import { Modal } from '@components/Modal';
+import { closeAuthorizationModal, loginUser } from '@store/authorizationSlice';
+import { useAppDispatch, useAppSelector } from '@store/store';
 
 const validateUsername = (username: string) => {
     if (!username) {

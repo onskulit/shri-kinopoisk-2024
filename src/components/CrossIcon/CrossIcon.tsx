@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import { IconBaseProps } from '@helpers/types';
+
 import { iconColorsMapper } from '@helpers/iconColors';
+import { IconBaseProps } from '@helpers/types';
 
 export const CrossIcon: FC<IconBaseProps> = ({
     color,

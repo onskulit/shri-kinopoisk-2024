@@ -1,5 +1,5 @@
-import { MovieList } from '@components/MovieList';
 import { Filters } from '@components/Filters';
+import { MovieList } from '@components/MovieList';
 
 import styles from './MainPage.module.css';
 

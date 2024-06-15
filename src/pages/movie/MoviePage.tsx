@@ -1,15 +1,31 @@
-import { Text } from '@components/Text';
+import { MovieActors } from '@components/MovieActors';
+import { MovieOverview } from '@components/MovieOverview';
+import { PageBlockItem } from '@components/PageBlockItem';
+import { PageBlocks } from '@components/PageBlocks';
+import { Spinner } from '@components/Spinner';
+import { useGetMovieById } from '@hooks/useGetMovieById';
+
+import styles from './MoviePage.module.css';
 
 export const MoviePage = () => {
+    const { isLoading, isError } = useGetMovieById();
+
+    if (isLoading) {
+        return <Spinner className={styles.loader} />;
+    }
+
+    if (isError) {
+        return 'Error fetching movie. Try again!';
+    }
+
     return (
-        <>
-            <p>Страничка фильма</p>
-            <Text size="xxs">Тест текста</Text>
-            <Text size="xs">Тест текста</Text>
-            <Text size="s">Тест текста</Text>
-            <Text size="m">Тест текста</Text>
-            <Text size="l">Тест текста</Text>
-            <Text size="xl">Тест текста</Text>
-        </>
+        <PageBlocks className={styles.container}>
+            <PageBlockItem>
+                <MovieOverview />
+            </PageBlockItem>
+            <PageBlockItem>
+                <MovieActors />
+            </PageBlockItem>
+        </PageBlocks>
     );
 };
