@@ -5,15 +5,15 @@
 
 .size-m {
     border-radius: var(--border-radius-m);
-    max-width: 150px;
+    max-height: 225px;
 }
 
 .size-l {
     border-radius: var(--border-radius-l);
-    max-width: 200px;
+    max-height: 350px;
 }
 
 .size-xl {
     border-radius: var(--border-radius-xl);
-    max-width: 350px;
+    max-height: 525px;
 }

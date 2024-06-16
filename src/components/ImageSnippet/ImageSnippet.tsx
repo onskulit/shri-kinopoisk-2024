@@ -1,7 +1,7 @@
 import { ImgHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import { WithClassName } from '@helpers/types.ts';
+import { WithClassName } from '@helpers/types';
 
 import styles from './ImageSnippet.module.css';
 
@@ -17,8 +17,7 @@ export const ImageSnippet = (props: ImageSnippetProps) => {
     return (
         <img
             {...props}
-            className={cn(className, styles[`size-${size}`])}
-            style={styles}
+            className={cn(className, styles[`size-${size}`], className)}
             alt={alt}
         />
     );

@@ -1,22 +1,15 @@
-import cn from 'classnames';
-
-import { SpecificMovie } from '@api/movieApi';
 import { Row } from '@components/Row';
 import { Text } from '@components/Text';
-import { WithClassName } from '@helpers/types';
+import { useGetMovieById } from '@hooks/useGetMovieById';
 
 import styles from './MovieDescription.module.css';
-
-type MovieDescriptionProps = WithClassName & {
-    movie: SpecificMovie;
-};
 
 const getRowTemplate = (
     key: string,
     value: string | number,
     withLineBreak: boolean = false
 ) => {
-    const template = [`${key}:`, withLineBreak ? <br key={key}/> : ' ', value];
+    const template = [`${key}:`, withLineBreak ? <br key={key} /> : ' ', value];
     return (
         <Text weight="light" size="xxs">
             {template}
@@ -24,12 +17,17 @@ const getRowTemplate = (
     );
 };
 
-export const MovieDescription = (props: MovieDescriptionProps) => {
-    const { movie, className } = props;
+export const MovieDescription = () => {
+    const { movie } = useGetMovieById();
+
+    if (!movie) {
+        return null;
+    }
+
     const { title, description, genre, rating, release_year } = movie;
 
     return (
-        <div className={cn(styles.container, className)}>
+        <div className={styles.container}>
             <Text weight="extrabold" size="xl">
                 {title}
             </Text>

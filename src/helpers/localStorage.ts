@@ -1,3 +1,4 @@
 export enum LocalStorageKey {
-    Token = 'auth-token',
+    AuthToken = 'auth-token',
+    MoviesRatings = 'movies-ratings',
 }

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 
 import { ImageSnippet } from '@components/ImageSnippet';
-import { MovieDescription } from '@components/MovieDescription';
+import { MovieInfoBlock } from '@components/MovieInfoBlock';
 import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl';
 import { WithClassName } from '@helpers/types';
 import { useGetMovieById } from '@hooks/useGetMovieById';
@@ -25,7 +25,7 @@ export const MovieOverview = (props: MovieOverviewProps) => {
                 src={getMoviePosterUrl(movie.id)}
                 alt={`poster-${movie.title}`}
             />
-            <MovieDescription movie={movie} />
+            <MovieInfoBlock />
         </div>
     );
 };
