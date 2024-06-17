@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import { useAppSelector } from '@store/store';
 import { useGetMovieListQuery } from '@api/movieApi';
-import { filterParamsSelector } from '@store/search/searchSlice';
+import { EmptyState } from '@components/EmptyState';
 import { PendingErrorGuard } from '@components/PendingErrorGuard';
 import { useSetSearchParams } from '@hooks/useSetQueryParams';
-import { EmptyState } from '@components/EmptyState';
+import { filterParamsSelector } from '@store/search/searchSlice';
+import { useAppSelector } from '@store/store';
 
 import { MovieSnippet } from '../MovieSnippet';
 

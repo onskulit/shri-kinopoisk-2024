@@ -1,10 +1,10 @@
 import { FC, PropsWithChildren } from 'react';
 
 import { Spinner } from '@components/Spinner/Spinner';
+import { Text } from '@components/Text';
+import { ERROR_TEXT } from '@helpers/consts';
 
 import styles from './PendingErrorGuard.module.css';
-import { ERROR_TEXT } from '@helpers/consts';
-import { Text } from '@components/Text';
 
 type PendingErrorGuardProps = {
     loaderSize?: number;

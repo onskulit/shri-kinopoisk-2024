@@ -1,7 +1,8 @@
-import { filterParamsSelector } from '@store/search/searchSlice';
-import { useAppSelector } from '@store/store';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
+import { filterParamsSelector } from '@store/search/searchSlice';
+import { useAppSelector } from '@store/store';
 
 export const useSetSearchParams = () => {
     const [_, setSearchParams] = useSearchParams();

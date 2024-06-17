@@ -1,9 +1,10 @@
 import { FC } from 'react';
 
-import styles from './EmptyState.module.css';
 import { EmptyStateIcon } from '@components/EmptyStateIcon';
-import { Text } from '@components/Text';
 import { Header } from '@components/Header';
+import { Text } from '@components/Text';
+
+import styles from './EmptyState.module.css';
 
 type EmptyStateProps = {
     title?: string;

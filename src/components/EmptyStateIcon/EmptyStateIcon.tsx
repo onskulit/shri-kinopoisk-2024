@@ -1,6 +1,7 @@
+import { FC } from 'react';
+
 import { iconColorsMapper } from '@helpers/iconColors';
 import { IconBaseProps } from '@helpers/types';
-import { FC } from 'react';
 
 export const EmptyStateIcon: FC<IconBaseProps> = ({
     color,
