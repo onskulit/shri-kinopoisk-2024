@@ -64,7 +64,11 @@
     color: var(--color-white);
 }
 
-.text-error {
+.text-color-grey {
+    color: var(--color-secondary-4);
+}
+
+.text-color-error {
     color: var(--color-error);
 }
 

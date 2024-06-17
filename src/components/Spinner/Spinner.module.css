@@ -15,9 +15,9 @@
     margin: 0;
     box-sizing: border-box;
     font-size: 9px;
-    border-top: 2px solid var(--color-grey);
-    border-right: 2px solid var(--color-grey);
-    border-bottom: 2px solid var(--color-grey);
+    border-top: 2px solid var(--color-secondary-4);
+    border-right: 2px solid var(--color-secondary-4);
+    border-bottom: 2px solid var(---color-secondary-4);
     border-left: 2px solid var(--color-primary);
     border-radius: 50%;
     opacity: 0;

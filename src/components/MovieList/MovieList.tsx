@@ -15,6 +15,7 @@ export const MovieList: FC = () => {
     const { title, genre, years, page } = useAppSelector(filterParamsSelector);
 
     useSetSearchParams();
+
     const { data, isLoading, isFetching, isError } = useGetMovieListQuery({
         page,
         title: title ? title : undefined,
@@ -22,24 +23,22 @@ export const MovieList: FC = () => {
         release_year: years !== '0' ? years : undefined,
     });
 
-    if (!data?.search_result.length) {
-        return (
-            <EmptyState
-                title="Ничего не найдено"
-                description="Попробуйте изменить параметры фильтра"
-            />
-        );
-    }
-
     return (
         <PendingErrorGuard
             isLoading={isLoading || isFetching}
             isError={isError}
         >
             <section className={styles.container}>
-                {data.search_result.map((movie) => (
-                    <MovieSnippet key={movie.id} {...movie} />
-                ))}
+                {data?.search_result.length ? (
+                    data.search_result.map((movie) => (
+                        <MovieSnippet key={movie.id} {...movie} />
+                    ))
+                ) : (
+                    <EmptyState
+                        title="Фильмы не найдены"
+                        description="Измените запрос и попробуйте снова"
+                    />
+                )}
             </section>
         </PendingErrorGuard>
     );

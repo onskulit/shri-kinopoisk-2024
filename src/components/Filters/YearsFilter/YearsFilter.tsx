@@ -1,8 +1,8 @@
 import { FC, useCallback, useLayoutEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { Dropdown } from '@components/Dropdown/Dropdown';
-import { SelectWrapper } from '@components/SelectWrapper/SelectWrapper';
+import { Dropdown } from '@components/Dropdown';
+import { SelectWrapper } from '@components/SelectWrapper';
 import { YEARS_MAP } from '@helpers/consts';
 import { selectYears, setYears } from '@store/search/searchSlice';
 import { useAppDispatch, useAppSelector } from '@store/store';
