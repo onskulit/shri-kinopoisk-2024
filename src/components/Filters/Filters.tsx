@@ -4,8 +4,8 @@ import { BlockWrapper } from '@components/BlockWrapper/BlockWrapper';
 import { Header } from '@components/Header';
 
 import { GenresFilter } from './GenresFilter';
-import { RatingFilter } from './RatingFilter';
 import { TitleFilter } from './TitleFilter';
+import { YearsFilter } from './YearsFilter';
 
 import styles from './Filters.module.css';
 
@@ -15,7 +15,7 @@ export const Filters: FC = () => (
         <div className={styles.selectors}>
             <TitleFilter />
             <GenresFilter />
-            <RatingFilter />
+            <YearsFilter />
         </div>
     </BlockWrapper>
 );

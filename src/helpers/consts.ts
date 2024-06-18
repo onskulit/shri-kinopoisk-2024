@@ -1,1 +1,34 @@
-export const dropdownsMountNodeId = 'dropdowns';
+export const DROPDOWNS_MOUNT_NODE_ID = 'dropdowns';
+
+export const ERROR_TEXT = 'Произошла ошибка при загрузке';
+
+export const GENRES_MAP = {
+    '0': 'Все жанры',
+    comedy: 'Комедия',
+    drama: 'Драма',
+    action: 'Боевик',
+    thriller: 'Триллер',
+    horror: 'Ужасы',
+    family: 'Семейный',
+    cartoon: 'Анимированный',
+    fantasy: 'Фэнтези',
+    romance: 'Романтика',
+    adventure: 'Приключения',
+    musical: 'Мьюзикл',
+    war: 'Военный',
+};
+
+export const YEARS_MAP = {
+    '0': 'Все годы',
+    '2024': '2024',
+    '2023': '2023',
+    '2022': '2022',
+    '2021': '2021',
+    '2020': '2020',
+    '2019': '2019',
+    '2010-2019': '2010-2019',
+    '2000-2009': '2000-2009',
+    '1990-1999': '1990-1999',
+    '1980-1989': '1980-1989',
+    '1800-1979': '1800-1979',
+};

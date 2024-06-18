@@ -8,24 +8,15 @@ import { setTitle } from '@store/search/searchSlice';
 import { useAppDispatch } from '@store/store';
 
 export const TitleFilter: FC = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
+
     const [inputValue, setInputValue] = useState('');
     const dispatch = useAppDispatch();
 
-    const debouncedSetTitle = useDebouncedCallback((title: string) => {
-        dispatch(setTitle(title));
-
-        if (!title) {
-            setSearchParams((params) => {
-                params.delete('title');
-                return params;
-            });
-
-            return;
-        }
-
-        setSearchParams({ title });
-    }, 500);
+    const debouncedSetTitle = useDebouncedCallback(
+        (title: string) => dispatch(setTitle(title)),
+        500
+    );
 
     useLayoutEffect(() => {
         const title = searchParams.get('title');

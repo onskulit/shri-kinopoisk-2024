@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { ArrowIcon } from '@components/ArrowIcon';
 import { Spinner } from '@components/Spinner';
 import { Text } from '@components/Text';
-import { dropdownsMountNodeId } from '@helpers/consts';
+import { DROPDOWNS_MOUNT_NODE_ID } from '@helpers/consts';
 import { useShowPortalBlock } from '@hooks/useShowPortalBlock';
 
 import { Items } from './Items';
@@ -15,7 +15,7 @@ const ITEMS_MARGIN = 4;
 
 type DropdownProps = {
     items: Record<string, string>;
-    selectedKey: string;
+    selectedKey?: string;
     setSelectedValue: (key: string) => void;
     placeholder: string;
     isLoading: boolean;
@@ -29,14 +29,14 @@ export const Dropdown: React.FC<DropdownProps> = ({
     setSelectedValue,
 }) => {
     const { blockRef, isShown, switchShow, blockStyles } = useShowPortalBlock(
-        dropdownsMountNodeId,
+        DROPDOWNS_MOUNT_NODE_ID,
         ITEMS_MARGIN
     );
 
     return (
         <div ref={blockRef} className={styles.container} onClick={switchShow}>
             <div className={cn(styles.text, { [styles.opened]: isShown })}>
-                {items[selectedKey] ? (
+                {selectedKey && items[selectedKey] ? (
                     <Text size="xxs" as="span">
                         {items[selectedKey]}
                     </Text>
