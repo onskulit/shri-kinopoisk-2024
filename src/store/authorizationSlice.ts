@@ -25,9 +25,6 @@ export const authorizationSlice = createSlice({
             state.isOpen = false;
         },
         setIsAuthorized(state, action: PayloadAction<boolean>) {
-            console.log({
-                isAuthorized: action.payload,
-            });
             state.isAuthorized = action.payload;
         },
         setIsLoading(state, action: PayloadAction<boolean>) {

@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 
-import { RootState } from '../store';
+import { RootState } from './store';
 
 type SearchState = {
     title: string;
@@ -52,5 +52,3 @@ export const filterParamsSelector = createSelector(
         page,
     })
 );
-
-export default searchSlice.reducer;
