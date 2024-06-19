@@ -1,21 +1,14 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useState } from 'react';
 
 import { Input } from '@components/Input/Input';
 import { SelectWrapper } from '@components/SelectWrapper';
 import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
 import { useSetSearchParams } from '@hooks/useSetSearchParams';
-import { selectTitle, setTitle } from '@store/searchSlice';
-import { useAppDispatch, useAppSelector } from '@store/store';
 
 export const TitleFilter: FC = () => {
-    const title = useAppSelector(selectTitle);
-    const dispatch = useAppDispatch();
+    const [title, setTitle] = useState('');
 
-    const setValue = useCallback(
-        (key: string) => dispatch(setTitle(key)),
-        [dispatch]
-    );
-    const { setSearchParams } = useSetSearchParams('title', setValue);
+    const { setSearchParams } = useSetSearchParams('title');
 
     const debouncedSetTitle = useDebouncedCallback(
         (title: string) => setSearchParams(title),
@@ -24,10 +17,10 @@ export const TitleFilter: FC = () => {
 
     const onChange = useCallback(
         (value: string) => {
-            setValue(value);
+            setTitle(value);
             debouncedSetTitle(value);
         },
-        [debouncedSetTitle, setValue]
+        [debouncedSetTitle, setTitle]
     );
 
     return (

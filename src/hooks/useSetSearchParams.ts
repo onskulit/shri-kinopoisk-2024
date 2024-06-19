@@ -1,20 +1,11 @@
-import { useCallback, useLayoutEffect } from 'react';
+import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 type Key = 'title' | 'genre' | 'years' | 'page';
 
-export const useSetSearchParams = (
-    key: Key,
-    setValue: (value: string) => void
-) => {
+export const useSetSearchParams = (key: Key) => {
     const [params, setParams] = useSearchParams();
-
-    useLayoutEffect(() => {
-        const paramValue = params.get(key);
-        if (paramValue) {
-            setValue(paramValue);
-        }
-    }, []);
+    const param = params.get(key) || undefined;
 
     const setSearchParams = useCallback(
         (value: string) => {
@@ -32,10 +23,9 @@ export const useSetSearchParams = (
 
                 return prev;
             });
-            setValue(value);
         },
         [setParams]
     );
 
-    return { setSearchParams };
+    return { param, setSearchParams };
 };
