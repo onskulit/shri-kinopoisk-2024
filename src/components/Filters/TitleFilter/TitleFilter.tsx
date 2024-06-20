@@ -1,42 +1,33 @@
-import { FC, useCallback, useLayoutEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { FC, useCallback, useState } from 'react';
 
 import { Input } from '@components/Input/Input';
 import { SelectWrapper } from '@components/SelectWrapper';
 import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
-import { setTitle } from '@store/search/searchSlice';
-import { useAppDispatch } from '@store/store';
+import { useSetSearchParams } from '@hooks/useSetSearchParams';
 
 export const TitleFilter: FC = () => {
-    const [searchParams] = useSearchParams();
+    const [title, setTitle] = useState('');
 
-    const [inputValue, setInputValue] = useState('');
-    const dispatch = useAppDispatch();
+    const { setSearchParams } = useSetSearchParams('title');
 
     const debouncedSetTitle = useDebouncedCallback(
-        (title: string) => dispatch(setTitle(title)),
+        (title: string) => setSearchParams(title),
         500
     );
 
-    useLayoutEffect(() => {
-        const title = searchParams.get('title');
-
-        if (title) {
-            setInputValue(title);
-            dispatch(setTitle(title));
-        }
-    }, []);
-
-    const onChange = useCallback((value: string) => {
-        setInputValue(value);
-        debouncedSetTitle(value);
-    }, []);
+    const onChange = useCallback(
+        (value: string) => {
+            setTitle(value);
+            debouncedSetTitle(value);
+        },
+        [debouncedSetTitle, setTitle]
+    );
 
     return (
         <SelectWrapper label="Название" htmlFor="title">
             <Input
                 id="title"
-                value={inputValue}
+                value={title}
                 onChange={onChange}
                 placeholder="Введите название"
             />

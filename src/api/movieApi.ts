@@ -5,7 +5,7 @@ type MovieListParams = {
     title?: string;
     genre?: string;
     release_year?: string;
-    page: number;
+    page?: string;
 };
 
 export type MovieId = string;

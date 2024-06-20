@@ -4,12 +4,12 @@ import { authorizationApi } from '@api/authorizationApi';
 import { movieApi } from '@api/movieApi';
 import { configureStore } from '@reduxjs/toolkit';
 
-import searchSliceReducer from './search/searchSlice';
 import { authorizationSlice } from './authorizationSlice';
+import { searchSlice } from './searchSlice';
 
 export const store = configureStore({
     reducer: {
-        search: searchSliceReducer,
+        search: searchSlice.reducer,
         [movieApi.reducerPath]: movieApi.reducer,
         [authorizationApi.reducerPath]: authorizationApi.reducer,
         authorization: authorizationSlice.reducer,

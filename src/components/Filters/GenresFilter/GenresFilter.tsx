@@ -1,36 +1,20 @@
-import { FC, useCallback, useLayoutEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { FC } from 'react';
 
 import { Dropdown } from '@components/Dropdown/Dropdown';
 import { SelectWrapper } from '@components/SelectWrapper/SelectWrapper';
 import { GENRES_MAP } from '@helpers/consts';
-import { selectGenre, setGenre } from '@store/search/searchSlice';
-import { useAppDispatch, useAppSelector } from '@store/store';
+import { useSetSearchParams } from '@hooks/useSetSearchParams';
 
 export const GenresFilter: FC = () => {
-    const genre = useAppSelector(selectGenre);
-    const [searchParams] = useSearchParams();
-    const dispatch = useAppDispatch();
-
-    useLayoutEffect(() => {
-        const genre = searchParams.get('genre');
-        if (genre) {
-            dispatch(setGenre(genre));
-        }
-    }, [dispatch, searchParams]);
-
-    const setSelectedValue = useCallback(
-        (key: string) => dispatch(setGenre(key)),
-        []
-    );
+    const { param, setSearchParams } = useSetSearchParams('genre');
 
     return (
         <SelectWrapper label="Жанры">
             <Dropdown
                 isLoading={false}
-                selectedKey={genre}
+                selectedKey={param}
                 items={GENRES_MAP}
-                setSelectedValue={setSelectedValue}
+                setSelectedValue={setSearchParams}
                 placeholder="Выберите жанр"
             />
         </SelectWrapper>
