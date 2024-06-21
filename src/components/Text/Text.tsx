@@ -6,7 +6,7 @@ import { WithClassName } from '@helpers/types';
 import styles from './Text.module.css';
 
 type TextProps = {
-    color?: 'dark' | 'light' | 'grey' | 'error';
+    color?: 'dark' | 'light' | 'grey' | 'error' | 'primary';
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
     as?: 'span' | 'div' | 'p';
     weight?: 'light' | 'regular' | 'medium' | 'bold' | 'extrabold';

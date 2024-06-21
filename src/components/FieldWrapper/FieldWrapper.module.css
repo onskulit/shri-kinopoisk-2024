@@ -5,6 +5,11 @@
     align-items: flex-start;
 }
 
+.labelContainer {
+    display: flex;
+    gap: 4px;
+}
+
 .label {
     color: var(--color-secondary-2);
     font-size: 14px;

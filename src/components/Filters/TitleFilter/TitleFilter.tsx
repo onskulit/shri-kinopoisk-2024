@@ -1,7 +1,7 @@
 import { FC, useCallback, useState } from 'react';
 
+import { FieldWrapper } from '@components/FieldWrapper';
 import { Input } from '@components/Input/Input';
-import { SelectWrapper } from '@components/SelectWrapper';
 import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
 import { useSetSearchParams } from '@hooks/useSetSearchParams';
 
@@ -24,13 +24,13 @@ export const TitleFilter: FC = () => {
     );
 
     return (
-        <SelectWrapper label="Название" htmlFor="title">
+        <FieldWrapper label="Название" htmlFor="title">
             <Input
                 id="title"
                 value={title}
                 onChange={onChange}
                 placeholder="Введите название"
             />
-        </SelectWrapper>
+        </FieldWrapper>
     );
 };
