@@ -1,5 +1,7 @@
-import { ChangeEvent, FC, InputHTMLAttributes, useCallback } from 'react';
+import { ChangeEvent, FC, InputHTMLAttributes } from 'react';
+import cn from 'classnames';
 
+import { CrossRoundIcon } from '@components/CrossRoundIcon';
 import { Text } from '@components/Text';
 
 import styles from './Input.module.css';
@@ -15,6 +17,8 @@ type InputProps = {
     error?: string;
     disabled?: boolean;
     id?: string;
+    icon?: JSX.Element;
+    withClear?: boolean;
 };
 
 export const Input: FC<InputProps> = ({
@@ -25,23 +29,35 @@ export const Input: FC<InputProps> = ({
     id,
     error,
     type = 'text',
+    icon,
+    withClear,
 }) => {
-    const onChangeInput = useCallback(
-        (event: ChangeEvent<HTMLInputElement>) => onChange(event.target.value),
-        [onChange]
-    );
+    const handleInput = (event: ChangeEvent<HTMLInputElement>) =>
+        onChange(event.target.value);
+
+    const handleClear = () => onChange('');
 
     return (
         <div className={styles.container}>
+            {icon && <div className={styles.icon}>{icon}</div>}
             <input
                 id={id}
-                className={styles.input}
+                className={cn(styles.input, icon && styles.withIcon)}
                 disabled={disabled}
                 value={value}
                 placeholder={placeholder}
                 type={type}
-                onChange={onChangeInput}
+                onChange={handleInput}
             />
+            {withClear && value && (
+                <button className={styles.clearButton} onClick={handleClear}>
+                    <CrossRoundIcon
+                        width={16}
+                        height={16}
+                        color="secondary-light"
+                    />
+                </button>
+            )}
             {error && (
                 <Text size="xxs" color="error">
                     {error}

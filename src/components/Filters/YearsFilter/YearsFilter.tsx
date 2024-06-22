@@ -9,13 +9,13 @@ export const YearsFilter: FC = () => {
     const { param, setSearchParams } = useSetSearchParams('years');
 
     return (
-        <FieldWrapper label="Годы">
+        <FieldWrapper label="Год">
             <Dropdown
                 isLoading={false}
                 selectedKey={param}
                 items={YEARS_MAP}
                 setSelectedValue={setSearchParams}
-                placeholder="Выберите рейтинг"
+                placeholder="Выберите год"
             />
         </FieldWrapper>
     );

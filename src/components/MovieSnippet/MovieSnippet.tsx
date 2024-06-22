@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Movie } from '@api/movieApi';
 import { BlockWrapper } from '@components/BlockWrapper';
 import { Header } from '@components/Header';
-import { Text } from '@components/Text';
-import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl';
+
+import { MovieInfoItem } from './MovieInfoItem';
 
 import styles from './MovieSnippet.module.css';
 
@@ -16,17 +16,18 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
     title,
     description,
     genre,
+    poster,
+    release_year,
 }) => (
     <Link to={`/movie/${id}`}>
         <BlockWrapper className={styles.container}>
-            <img className={styles.poster} src={getMoviePosterUrl(id)} />
+            <img className={styles.poster} src={poster} />
             <Header as="h2">{title}</Header>
-            <Text as="span" size="xs" style="italic">
-                {genre}
-            </Text>
-            <Text as="p" size="xs">
-                {description}
-            </Text>
+            <div className={styles.info}>
+                <MovieInfoItem label="Жанр" text={genre} />
+                <MovieInfoItem label="Год выпуска" text={release_year} />
+                <MovieInfoItem label="Описание" text={description} />
+            </div>
         </BlockWrapper>
     </Link>
 );

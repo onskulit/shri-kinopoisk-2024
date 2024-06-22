@@ -9,7 +9,7 @@ export const GenresFilter: FC = () => {
     const { param, setSearchParams } = useSetSearchParams('genre');
 
     return (
-        <FieldWrapper label="Жанры">
+        <FieldWrapper label="Жанр">
             <Dropdown
                 isLoading={false}
                 selectedKey={param}

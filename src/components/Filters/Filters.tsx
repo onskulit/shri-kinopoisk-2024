@@ -4,16 +4,14 @@ import { BlockWrapper } from '@components/BlockWrapper/BlockWrapper';
 import { Header } from '@components/Header';
 
 import { GenresFilter } from './GenresFilter';
-import { TitleFilter } from './TitleFilter';
 import { YearsFilter } from './YearsFilter';
 
 import styles from './Filters.module.css';
 
 export const Filters: FC = () => (
     <BlockWrapper className={styles.container}>
-        <Header as="h3">Фильтр поиска</Header>
+        <Header as="h3">Фильтр</Header>
         <div className={styles.selectors}>
-            <TitleFilter />
             <GenresFilter />
             <YearsFilter />
         </div>

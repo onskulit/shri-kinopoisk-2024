@@ -1,4 +1,6 @@
 .container {
+    display: flex;
+    position: relative;
     width: 100%;
 }
 
@@ -15,12 +17,44 @@
     background: var(--color-white);
 }
 
+.withIcon {
+    padding-left: 32px;
+}
+
 .input::-webkit-input-placeholder,
 .input::-moz-placeholder {
     color: var(--color-grey);
 }
 
-.input:focus,
 .input:hover {
-    outline: 1px solid var(--color-orange);
+    cursor: pointer;
+    outline: 1px solid var(--color-secondary-5);
+}
+
+.input:focus,
+.input:active {
+    cursor: text;
+    outline: 1px solid var(--color-primary);
+}
+
+.clearButton {
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    height: 16px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.icon {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    height: 16px;
+    width: 16px;
+    transform: translateY(-50%);
 }

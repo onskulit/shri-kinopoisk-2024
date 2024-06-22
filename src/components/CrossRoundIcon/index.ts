@@ -1,0 +1,1 @@
+export { CrossRoundIcon } from './CrossRoundIcon';

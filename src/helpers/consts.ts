@@ -3,7 +3,7 @@ export const DROPDOWNS_MOUNT_NODE_ID = 'dropdowns';
 export const ERROR_TEXT = 'Произошла ошибка при загрузке';
 
 export const GENRES_MAP = {
-    '0': 'Все жанры',
+    '0': 'Не выбран',
     comedy: 'Комедия',
     drama: 'Драма',
     action: 'Боевик',
@@ -19,7 +19,7 @@ export const GENRES_MAP = {
 };
 
 export const YEARS_MAP = {
-    '0': 'Все годы',
+    '0': 'Не выбран',
     '2024': '2024',
     '2023': '2023',
     '2022': '2022',
