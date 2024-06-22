@@ -17,16 +17,16 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
     description,
     genre,
     poster,
-    release_year,
+    release_year: releaseYear,
 }) => (
     <Link to={`/movie/${id}`}>
         <BlockWrapper className={styles.container}>
             <img className={styles.poster} src={poster} />
             <Header as="h2">{title}</Header>
             <div className={styles.info}>
-                <MovieInfoItem label="Жанр" text={genre} />
-                <MovieInfoItem label="Год выпуска" text={release_year} />
-                <MovieInfoItem label="Описание" text={description} />
+                <MovieInfoItem label="Жанр" value={genre} />
+                <MovieInfoItem label="Год выпуска" value={releaseYear} />
+                <MovieInfoItem label="Описание" value={description} />
             </div>
         </BlockWrapper>
     </Link>

@@ -6,14 +6,14 @@ import styles from './MovieInfoItem.module.css';
 
 type MovieInfoItemProps = {
     label: string;
-    text: string | number;
+    value: string | number;
 };
 
-export const MovieInfoItem: FC<MovieInfoItemProps> = ({ label, text }) => (
+export const MovieInfoItem: FC<MovieInfoItemProps> = ({ label, value }) => (
     <div className={styles.container}>
         <Text className={styles.label} size="xxs" color="grey" as="span">
             {label}
         </Text>
-        <Text size="xxs">{text}</Text>
+        <Text size="xxs">{value}</Text>
     </div>
 );
