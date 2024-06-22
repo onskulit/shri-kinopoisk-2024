@@ -7,7 +7,7 @@ import styles from './ImageSnippet.module.css';
 
 type ImageSnippetProps = ImgHTMLAttributes<HTMLImageElement> &
     WithClassName & {
-        size: 'm' | 'l' | 'xl';
+        size: 's' | 'm' | 'l' | 'xl';
         alt: string;
     };
 
