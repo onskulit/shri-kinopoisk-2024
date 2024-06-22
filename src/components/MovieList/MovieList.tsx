@@ -2,11 +2,11 @@ import { FC } from 'react';
 
 import { EmptyState } from '@components/EmptyState';
 import { PendingErrorGuard } from '@components/PendingErrorGuard';
+import { useGetMovieList } from '@hooks/useGetMovieList';
 
 import { MovieSnippet } from '../MovieSnippet';
 
 import styles from './MovieList.module.css';
-import { useGetMovieList } from '@hooks/useGetMovieList';
 
 export const MovieList: FC = () => {
     const { data, isLoading, isFetching, isError } = useGetMovieList();

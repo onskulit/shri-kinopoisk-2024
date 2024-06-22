@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Dropdown } from '@components/Dropdown/Dropdown';
-import { SelectWrapper } from '@components/SelectWrapper/SelectWrapper';
+import { FieldWrapper } from '@components/FieldWrapper/FieldWrapper';
 import { GENRES_MAP } from '@helpers/consts';
 import { useSetSearchParams } from '@hooks/useSetSearchParams';
 
@@ -9,7 +9,7 @@ export const GenresFilter: FC = () => {
     const { param, setSearchParams } = useSetSearchParams('genre');
 
     return (
-        <SelectWrapper label="Жанры">
+        <FieldWrapper label="Жанры">
             <Dropdown
                 isLoading={false}
                 selectedKey={param}
@@ -17,6 +17,6 @@ export const GenresFilter: FC = () => {
                 setSelectedValue={setSearchParams}
                 placeholder="Выберите жанр"
             />
-        </SelectWrapper>
+        </FieldWrapper>
     );
 };

@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { AuthorizationModal } from '@components/AuthorizationModal';
 import { Button } from '@components/Button';
 import { Text } from '@components/Text';
-import { UserIcon } from '@components/UserIcon';
+import { UserAvatar } from '@components/UserAvatar';
 import { LocalStorageKey } from '@helpers/localStorage';
 import {
     openAuthorizationModal,
@@ -31,9 +31,17 @@ export const AuthorizationControl = () => {
     return (
         <>
             <div className={styles.container}>
-                <UserIcon />
-                <Button color="primary" size="m" onClick={onButtonClick}>
-                    <Text size="s" color="light" weight="medium">
+                {isAuthorized && <UserAvatar />}
+                <Button
+                    color={isAuthorized ? 'transparent' : 'primary'}
+                    size="m"
+                    onClick={onButtonClick}
+                >
+                    <Text
+                        size="xxs"
+                        color={isAuthorized ? 'primary' : 'light'}
+                        weight="medium"
+                    >
                         {isAuthorized ? 'Выйти' : 'Войти'}
                     </Text>
                 </Button>

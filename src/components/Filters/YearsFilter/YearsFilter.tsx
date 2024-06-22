@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Dropdown } from '@components/Dropdown';
-import { SelectWrapper } from '@components/SelectWrapper';
+import { FieldWrapper } from '@components/FieldWrapper';
 import { YEARS_MAP } from '@helpers/consts';
 import { useSetSearchParams } from '@hooks/useSetSearchParams';
 
@@ -9,7 +9,7 @@ export const YearsFilter: FC = () => {
     const { param, setSearchParams } = useSetSearchParams('years');
 
     return (
-        <SelectWrapper label="Годы">
+        <FieldWrapper label="Годы">
             <Dropdown
                 isLoading={false}
                 selectedKey={param}
@@ -17,6 +17,6 @@ export const YearsFilter: FC = () => {
                 setSelectedValue={setSearchParams}
                 placeholder="Выберите рейтинг"
             />
-        </SelectWrapper>
+        </FieldWrapper>
     );
 };

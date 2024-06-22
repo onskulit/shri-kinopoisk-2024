@@ -56,13 +56,19 @@ export const {
 export const loginUser = createAsyncThunk(
     'loginUser',
     async (credentials: AuthorizationParams, { dispatch, rejectWithValue }) => {
-        const response = await dispatch(loginUserMutation(credentials));
-        const { error, data } = response;
-        if (error) {
-            console.log('Что-то пошло не так');
-            return rejectWithValue(error);
+        try {
+            const response = await dispatch(loginUserMutation(credentials));
+            const { error, data } = response;
+            if (error) {
+                console.log('Что-то пошло не так');
+                return rejectWithValue(error);
+            }
+
+            console.log('Пользователь успешно авторизован');
+            localStorage.setItem(LocalStorageKey.Token, data.token);
+            return data;
+        } catch (error) {
+            console.log(error);
         }
-        localStorage.setItem(LocalStorageKey.Token, data.token);
-        return data;
     }
 );
