@@ -18,7 +18,7 @@ type InputProps = {
     disabled?: boolean;
     id?: string;
     icon?: JSX.Element;
-    withClear?: boolean;
+    isClearable?: boolean;
 };
 
 export const Input: FC<InputProps> = ({
@@ -30,7 +30,7 @@ export const Input: FC<InputProps> = ({
     error,
     type = 'text',
     icon,
-    withClear,
+    isClearable,
 }) => {
     const handleInput = (event: ChangeEvent<HTMLInputElement>) =>
         onChange(event.target.value);
@@ -49,7 +49,7 @@ export const Input: FC<InputProps> = ({
                 type={type}
                 onChange={handleInput}
             />
-            {withClear && value && (
+            {isClearable && value && (
                 <button className={styles.clearButton} onClick={handleClear}>
                     <CrossRoundIcon
                         width={16}

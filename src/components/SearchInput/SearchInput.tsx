@@ -41,7 +41,7 @@ export const SearchInput: FC = () => {
                 value={title}
                 onChange={onChange}
                 placeholder="Название фильма"
-                withClear
+                isClearable
             />
         </div>
     );
