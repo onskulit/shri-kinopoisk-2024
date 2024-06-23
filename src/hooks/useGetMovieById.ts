@@ -1,15 +1,15 @@
 import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'next/navigation';
 
 import { useGetMovieByIdQuery } from '@api/movieApi';
 import { assertIsDefined } from '@helpers/typesHelpers';
 
 export const useGetMovieById = () => {
-    const { id } = useParams();
+    const params = useParams<{ id: string }>();
 
-    assertIsDefined(id);
+    assertIsDefined(params?.id);
 
-    const { data, isLoading, isError } = useGetMovieByIdQuery(id);
+    const { data, isLoading, isError } = useGetMovieByIdQuery(params?.id);
 
     return useMemo(
         () => ({ movie: data, isLoading, isError }),

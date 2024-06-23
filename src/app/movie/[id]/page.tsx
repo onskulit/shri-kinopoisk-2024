@@ -1,12 +1,14 @@
+'use client';
+
 import { MovieActors } from '@components/MovieActors';
 import { MovieOverview } from '@components/MovieOverview';
 import { PageBlocks } from '@components/PageBlocks';
 import { Spinner } from '@components/Spinner';
 import { useGetMovieById } from '@hooks/useGetMovieById';
 
-import styles from './MoviePage.module.css';
+import styles from './page.module.css';
 
-export const MoviePage = () => {
+const MoviePage = () => {
     const { isLoading, isError } = useGetMovieById();
 
     if (isLoading) {
@@ -24,3 +26,5 @@ export const MoviePage = () => {
         </PageBlocks>
     );
 };
+
+export default MoviePage;

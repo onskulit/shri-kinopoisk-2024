@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Movie } from '@api/movieApi';
 import { BlockWrapper } from '@components/BlockWrapper';
@@ -10,6 +9,7 @@ import { MovieRating } from '@components/MovieRating';
 import { MovieInfoItem } from './MovieInfoItem';
 
 import styles from './MovieSnippet.module.css';
+import Link from 'next/link';
 
 type MovieSnippetProps = Movie;
 

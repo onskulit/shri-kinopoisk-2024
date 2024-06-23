@@ -1,12 +1,19 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 type PortalProps = {
     mountElement?: HTMLElement | null;
 } & PropsWithChildren;
 
+// TODO: фиксануть костыль referenceerror: document is not defined
 export const Portal: FC<PortalProps> = ({ children, mountElement }) => {
-    const element = mountElement ?? document.body;
+    const [isMounted, setIsMounted] = useState(false);
 
-    return createPortal(children, element);
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    return isMounted
+        ? createPortal(children, mountElement ?? document?.body)
+        : null;
 };
