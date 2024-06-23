@@ -15,7 +15,11 @@ export const ActorsList = (props: ActorsListProps) => {
     return (
         <div className={cn(styles.container, className)}>
             {actorsList.map((actor, index) => (
-                <ActorSnippet key={index} actor={actor} />
+                <ActorSnippet
+                    key={index}
+                    name={actor.name}
+                    photo={actor.photo}
+                />
             ))}
         </div>
     );

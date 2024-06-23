@@ -34,9 +34,9 @@ export const StarRating: React.FC<StarRatingProps> = ({
         <div>
             <StarRatingLabel labelText={labelText} />
             <StarList
-                totalStars={totalStars}
-                onRatingChange={handleRatingChange}
                 rating={rating}
+                totalStars={totalStars}
+                handleRatingChange={handleRatingChange}
             />
         </div>
     );

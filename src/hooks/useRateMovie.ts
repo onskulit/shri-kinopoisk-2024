@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useRateMovieMutation } from '@api/movieApi';
 import { LocalStorageKey } from '@helpers/localStorage';
 import { assertIsDefined } from '@helpers/typesHelpers';
-import { useThrottle } from '@helpers/useThrottle';
+import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
 
 export const useRateMovie = () => {
     const [handleRateMovie] = useRateMovieMutation();
@@ -23,7 +23,7 @@ export const useRateMovie = () => {
         return parsed[id] ?? 0;
     }, [id]);
 
-    const fn = useThrottle(
+    const fn = useDebouncedCallback(
         (newRate: number) => {
             assertIsDefined(id);
 

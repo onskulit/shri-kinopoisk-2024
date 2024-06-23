@@ -1,6 +1,6 @@
 import { MovieDescription } from '@components/MovieDescription';
 import { StarRating } from '@components/StarRating';
-import { useRateMovie } from '@helpers/useRateMovie';
+import { useRateMovie } from '@hooks/useRateMovie';
 import { useAppSelector } from '@store/store';
 
 import styles from './MovieInfoBlock.module.css';

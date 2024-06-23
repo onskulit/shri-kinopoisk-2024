@@ -1,36 +1,27 @@
-import { useCallback, useState } from 'react';
-
 type StarProps = {
-    sequenceNumber: number;
     rating: number;
-    onChange: (value: number) => void;
+    value: number;
+    hover: number;
+    handleChange: (value: number) => void;
+    handleHover: (value: number) => void;
 };
 
-export const Star = ({ sequenceNumber, onChange, rating }: StarProps) => {
-    const [hoveredNumber, setHoveredNumber] = useState(0);
-
-    const handleClick = useCallback(() => {
-        onChange(sequenceNumber);
-    }, [onChange, sequenceNumber]);
-
-    const handleMouseEnter = useCallback(() => {
-        setHoveredNumber(sequenceNumber);
-    }, [setHoveredNumber, sequenceNumber]);
-
-    const handleMouseLeave = useCallback(() => {
-        setHoveredNumber(0);
-    }, [setHoveredNumber]);
-
+export const Star = ({
+    rating,
+    value,
+    hover,
+    handleChange,
+    handleHover,
+}: StarProps) => {
     return (
         <div
-            className="star"
-            onClick={handleClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onClick={() => handleChange(value)}
+            onMouseEnter={() => handleHover(value)}
+            onMouseLeave={() => handleHover(rating)}
         >
             <svg
                 fill={
-                    sequenceNumber <= (hoveredNumber || rating)
+                    value <= (hover || rating)
                         ? 'var(--color-info-pale)'
                         : 'grey'
                 }

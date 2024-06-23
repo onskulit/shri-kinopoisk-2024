@@ -1,26 +1,32 @@
+import { useState } from 'react';
+
 import { Star } from '@components/Star';
 
 type StarsListProps = {
     totalStars: number;
-    onRatingChange: (value: number) => void;
     rating: number;
+    handleRatingChange: (value: number) => void;
 };
 
 export const StarList = ({
     totalStars,
-    onRatingChange,
+    handleRatingChange,
     rating,
 }: StarsListProps) => {
+    const [hover, setHover] = useState(0);
+
     return (
         <div style={{ display: 'flex' }}>
             {[...Array(totalStars)].map((_, index) => {
-                const sequenceNumber = index + 1;
+                const value = index + 1;
                 return (
                     <Star
-                        key={sequenceNumber}
-                        sequenceNumber={sequenceNumber}
-                        onChange={onRatingChange}
+                        key={value}
                         rating={rating}
+                        value={value}
+                        hover={hover}
+                        handleChange={handleRatingChange}
+                        handleHover={setHover}
                     />
                 );
             })}
