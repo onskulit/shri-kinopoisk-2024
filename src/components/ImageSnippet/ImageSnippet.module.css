@@ -1,3 +1,8 @@
+.size-s {
+    border-radius: var(--border-radius-m);
+    max-width: 100px;
+}
+
 .size-m {
     border-radius: var(--border-radius-m);
     max-width: 150px;

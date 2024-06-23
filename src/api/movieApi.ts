@@ -12,6 +12,7 @@ export type MovieId = string;
 export type Movie = {
     id: MovieId;
     title: string;
+    poster: string;
     description: string;
     genre: string;
     release_year: number;
