@@ -1,30 +1,31 @@
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 type Key = 'title' | 'genre' | 'years' | 'page';
 
 export const useSetSearchParams = (key: Key) => {
-    const [params, setParams] = useSearchParams();
-    const param = params.get(key) || undefined;
+    const { replace } = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const param = searchParams?.get(key) || undefined;
 
     const setSearchParams = useCallback(
         (value: string) => {
-            setParams((prev) => {
-                if (
-                    (key === 'title' && value === '') ||
-                    (key !== 'title' && value === '0')
-                ) {
-                    prev.delete(key);
+            const params = new URLSearchParams(searchParams?.toString());
+            if (
+                (key === 'title' && value === '') ||
+                (key !== 'title' && value === '0')
+            ) {
+                console.log(value);
 
-                    return prev;
-                }
+                params.delete(key);
+            } else {
+                params.set(key, value);
+            }
 
-                prev.set(key, value);
-
-                return prev;
-            });
+            replace(`${pathname}?${params.toString()}`);
         },
-        [setParams]
+        [searchParams, key, param, pathname]
     );
 
     return { param, setSearchParams };

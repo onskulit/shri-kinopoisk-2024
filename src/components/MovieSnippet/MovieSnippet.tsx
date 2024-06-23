@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Movie } from '@api/movieApi';
 import { BlockWrapper } from '@components/BlockWrapper';
@@ -9,6 +8,7 @@ import { ImageSnippet } from '@components/ImageSnippet';
 import { MovieInfoItem } from './MovieInfoItem';
 
 import styles from './MovieSnippet.module.css';
+import Link from 'next/link';
 
 type MovieSnippetProps = Movie;
 
@@ -20,7 +20,7 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
     poster,
     release_year: releaseYear,
 }) => (
-    <Link to={`/movie/${id}`}>
+    <Link href={`/movie/${id}`}>
         <BlockWrapper className={styles.container}>
             <ImageSnippet
                 alt="Постер фильма"

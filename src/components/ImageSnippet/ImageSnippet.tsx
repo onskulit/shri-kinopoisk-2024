@@ -18,7 +18,6 @@ export const ImageSnippet = (props: ImageSnippetProps) => {
         <img
             {...props}
             className={cn(className, styles[`size-${size}`])}
-            style={styles}
             alt={alt}
         />
     );

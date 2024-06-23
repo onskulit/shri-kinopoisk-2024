@@ -1,15 +1,15 @@
 import { useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 import { useGetMovieListQuery } from '@api/movieApi';
+import { useSearchParams } from 'next/navigation';
 
 export const useGetMovieList = () => {
-    const [params] = useSearchParams();
+    const params = useSearchParams();
 
-    const page = params.get('page');
-    const title = params.get('title');
-    const genre = params.get('genre');
-    const years = params.get('years');
+    const page = params?.get('page');
+    const title = params?.get('title');
+    const genre = params?.get('genre');
+    const years = params?.get('years');
 
     const { data, isLoading, isFetching, isError } = useGetMovieListQuery({
         page: page || undefined,

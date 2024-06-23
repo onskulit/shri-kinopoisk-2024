@@ -7,7 +7,6 @@ import { Portal } from '@components/Portal';
 
 import styles from './Modal.module.css';
 
-
 type ModalProps = {
     isOpen: boolean;
     title: string;
