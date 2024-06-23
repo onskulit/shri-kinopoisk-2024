@@ -8,7 +8,6 @@
         "start": "next start",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
         "lint:fix": "eslint . --fix",
-        "preview": "vite preview",
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
@@ -26,7 +25,6 @@
         "@types/react-dom": "^18.2.22",
         "@typescript-eslint/eslint-plugin": "^7.2.0",
         "@typescript-eslint/parser": "^7.2.0",
-        "@vitejs/plugin-react": "^4.2.1",
         "eslint": "^8.57.0",
         "eslint-config-next": "^14.2.3",
         "eslint-plugin-react-hooks": "^4.6.0",
