@@ -21,7 +21,7 @@ export const AuthorizationControl = () => {
 
     const onButtonClick = useCallback(() => {
         if (isAuthorized) {
-            localStorage.removeItem(LocalStorageKey.Token);
+            localStorage.removeItem(LocalStorageKey.AuthToken);
             dispatch(setIsAuthorized(false));
         } else {
             dispatch(openAuthorizationModal());

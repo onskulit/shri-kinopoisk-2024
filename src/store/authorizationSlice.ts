@@ -65,7 +65,7 @@ export const loginUser = createAsyncThunk(
             }
 
             console.log('Пользователь успешно авторизован');
-            localStorage.setItem(LocalStorageKey.Token, data.token);
+            localStorage.setItem(LocalStorageKey.AuthToken, data.token);
             return data;
         } catch (error) {
             console.log(error);
