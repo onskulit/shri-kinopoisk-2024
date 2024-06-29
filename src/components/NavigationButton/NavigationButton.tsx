@@ -8,7 +8,7 @@ import styles from './NavigationButton.module.css';
 type NavigationButtonProps = {
     type: 'next' | 'prev';
     size: 'm' | 's';
-    isDisabled: boolean;
+    isDisabled?: boolean;
     onClick: () => void;
 };
 

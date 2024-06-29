@@ -11,15 +11,17 @@ export const useGetMovieList = () => {
     const genre = params.get('genre');
     const years = params.get('years');
 
+    const currentPage = page ? parseInt(page) : undefined;
+
     const { data, isLoading, isFetching, isError } = useGetMovieListQuery({
-        page: page || undefined,
+        page: currentPage,
         title: title || undefined,
         genre: genre || undefined,
         release_year: years || undefined,
     });
 
     return useMemo(
-        () => ({ data, isLoading, isFetching, isError }),
-        [data, isLoading, isFetching, isError]
+        () => ({ data, currentPage, isLoading, isFetching, isError }),
+        [data, isLoading, isFetching, isError, currentPage]
     );
 };

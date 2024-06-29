@@ -6,7 +6,7 @@ type MovieListParams = {
     title?: string;
     genre?: string;
     release_year?: string;
-    page?: string;
+    page?: number;
 };
 
 export type MovieId = string;
@@ -22,6 +22,7 @@ export type Movie = {
 
 type MovieListResponse = {
     search_result: Movie[];
+    total_pages: number;
 };
 
 export type SpecificMovie = Movie & {

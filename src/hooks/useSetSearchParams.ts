@@ -21,6 +21,11 @@ export const useSetSearchParams = (key: Key) => {
 
                 prev.set(key, value);
 
+                // обнуляем значение page, если прокидываем новое значение фильтра
+                if (key === 'genre' || key === 'years') {
+                    prev.delete('page');
+                }
+
                 return prev;
             });
         },
