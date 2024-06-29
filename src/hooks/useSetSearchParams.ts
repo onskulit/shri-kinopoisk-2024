@@ -1,7 +1,9 @@
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
+'use client';
 
-type Key = 'title' | 'genre' | 'years' | 'page';
+import { useCallback } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+type Key = 'title' | 'genre' | 'release_year' | 'page';
 
 export const useSetSearchParams = (key: Key) => {
     const { replace } = useRouter();

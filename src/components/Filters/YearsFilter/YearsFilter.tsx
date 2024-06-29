@@ -6,7 +6,7 @@ import { YEARS_MAP } from '@helpers/consts';
 import { useSetSearchParams } from '@hooks/useSetSearchParams';
 
 export const YearsFilter: FC = () => {
-    const { param, setSearchParams } = useSetSearchParams('years');
+    const { param, setSearchParams } = useSetSearchParams('release_year');
 
     return (
         <FieldWrapper label="Год">

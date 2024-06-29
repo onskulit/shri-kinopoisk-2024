@@ -1,4 +1,6 @@
-import { FC, useCallback, useLayoutEffect, useState } from 'react';
+'use client';
+
+import { FC, Suspense, useCallback, useLayoutEffect, useState } from 'react';
 
 import { Input } from '@components/Input/Input';
 import { SearchIcon } from '@components/SearchIcon';
@@ -29,21 +31,23 @@ export const SearchInput: FC = () => {
     );
 
     return (
-        <div className={styles.container}>
-            <Input
-                icon={
-                    <SearchIcon
-                        width={16}
-                        height={16}
-                        color="secondary-light"
-                    />
-                }
-                id="title"
-                value={title}
-                onChange={onChange}
-                placeholder="Название фильма"
-                isClearable
-            />
-        </div>
+        <Suspense>
+            <div className={styles.container}>
+                <Input
+                    icon={
+                        <SearchIcon
+                            width={16}
+                            height={16}
+                            color="secondary-light"
+                        />
+                    }
+                    id="title"
+                    value={title}
+                    onChange={onChange}
+                    placeholder="Название фильма"
+                    isClearable
+                />
+            </div>
+        </Suspense>
     );
 };

@@ -1,11 +1,12 @@
 'use client';
 
-import './globals.css';
 import { FC, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 
 import { PageHeader } from '@components/PageHeader';
 import { store } from '@store/store';
+
+import './globals.css';
 
 const AppLayout: FC<PropsWithChildren> = ({ children }) => {
     return (

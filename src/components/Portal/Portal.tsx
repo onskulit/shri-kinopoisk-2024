@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, PropsWithChildren, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 

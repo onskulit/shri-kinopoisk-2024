@@ -1,18 +1,30 @@
-'use client';
+import { Suspense } from 'react';
 
+import { getMovieList, MovieListParams } from '@api/movieApi';
 import { Filters } from '@components/Filters';
 import { MovieList } from '@components/MovieList';
-
-import styles from './page.module.css';
 import { SearchInput } from '@components/SearchInput';
 
-const MainPage = () => {
+import styles from './page.module.css';
+
+type MainPageProps = {
+    searchParams: MovieListParams;
+};
+
+const MainPage = async ({ searchParams }: MainPageProps) => {
+    const { data, isError } = await getMovieList(searchParams);
+
     return (
         <div className={styles.container}>
             <Filters />
             <main className={styles.main}>
-                <SearchInput />
-                <MovieList />
+                <Suspense>
+                    <SearchInput />
+                </Suspense>
+                <MovieList
+                    searchResult={data?.search_result}
+                    isError={isError}
+                />
             </main>
         </div>
     );

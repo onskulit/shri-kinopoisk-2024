@@ -1,8 +1,7 @@
 import { FC, PropsWithChildren } from 'react';
 
+import { ErrorText } from '@components/ErrorText';
 import { Spinner } from '@components/Spinner';
-import { Text } from '@components/Text';
-import { ERROR_TEXT } from '@helpers/consts';
 
 import styles from './PendingErrorGuard.module.css';
 
@@ -22,9 +21,7 @@ export const PendingErrorGuard: FC<
                     <Spinner size={loaderSize} />
                 </div>
             ) : isError ? (
-                <Text size="xs" className={styles.error}>
-                    {ERROR_TEXT}
-                </Text>
+                <ErrorText />
             ) : (
                 <>{children}</>
             )}
