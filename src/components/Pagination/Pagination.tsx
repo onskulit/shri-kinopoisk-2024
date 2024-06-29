@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { NavigationButton } from '@components/NavigationButton';
+import { Text } from '@components/Text';
 import { setScrollToTop } from '@helpers/setScrollToTop';
 import { useSetSearchParams } from '@hooks/useSetSearchParams';
 
@@ -49,7 +50,9 @@ export const Pagination: FC<PaginationProps> = ({ totalPages }) => {
                 onClick={onPrevPageClick}
                 isDisabled={prevPageDisabled}
             />
-            <span>{currentPage || 1}</span>
+            <Text size="xxs" as="span">
+                {currentPage || 1}
+            </Text>
             <NavigationButton
                 size="s"
                 type="next"
