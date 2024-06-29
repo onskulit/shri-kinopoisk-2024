@@ -14,7 +14,8 @@ export const SearchInput: FC = () => {
 
     const debouncedSetTitle = useDebouncedCallback(
         (title: string) => setSearchParams(title),
-        500
+        500,
+        []
     );
 
     useLayoutEffect(() => setTitle(param || ''), [param]);
