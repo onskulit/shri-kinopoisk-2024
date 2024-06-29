@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
 import { EmptyState } from '@components/EmptyState';
 import { Pagination } from '@components/Pagination';
@@ -10,12 +10,7 @@ import { MovieSnippet } from '../MovieSnippet';
 import styles from './MovieList.module.css';
 
 export const MovieList: FC = () => {
-    const { data, currentPage, isLoading, isFetching, isError } =
-        useGetMovieList();
-
-    useEffect(() => {
-        window?.scrollTo(0, 0);
-    }, [currentPage]);
+    const { data, isLoading, isFetching, isError } = useGetMovieList();
 
     return (
         <PendingErrorGuard

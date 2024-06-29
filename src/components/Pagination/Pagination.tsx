@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { NavigationButton } from '@components/NavigationButton';
+import { setScrollToTop } from '@helpers/setScrollToTop';
 import { useSetSearchParams } from '@hooks/useSetSearchParams';
 
 import styles from './Pagination.module.css';
@@ -12,7 +13,7 @@ type PaginationProps = {
 export const Pagination: FC<PaginationProps> = ({ totalPages }) => {
     const { param, setSearchParams } = useSetSearchParams('page');
 
-    const currentPage = param ? parseInt(param) : 1;
+    const currentPage = param ? parseInt(param, 10) : 1;
 
     // пагинацию не показываем, если всего 1 страница
     if (currentPage === 1 && currentPage === totalPages) {
@@ -22,20 +23,22 @@ export const Pagination: FC<PaginationProps> = ({ totalPages }) => {
     const prevPageDisabled = !currentPage || currentPage === 1;
     const nextPageDisabled = totalPages === currentPage;
 
-    const handlePrevPageClick = () => {
+    const onPrevPageClick = () => {
         if (!currentPage || prevPageDisabled) {
             return;
         }
 
         setSearchParams(`${currentPage - 1}`);
+        setScrollToTop();
     };
 
-    const handleNextPageClick = () => {
+    const onNextPageClick = () => {
         if (!currentPage || nextPageDisabled) {
             return;
         }
 
         setSearchParams(`${currentPage + 1}`);
+        setScrollToTop();
     };
 
     return (
@@ -43,14 +46,14 @@ export const Pagination: FC<PaginationProps> = ({ totalPages }) => {
             <NavigationButton
                 size="s"
                 type="prev"
-                onClick={handlePrevPageClick}
+                onClick={onPrevPageClick}
                 isDisabled={prevPageDisabled}
             />
             <span>{currentPage || 1}</span>
             <NavigationButton
                 size="s"
                 type="next"
-                onClick={handleNextPageClick}
+                onClick={onNextPageClick}
                 isDisabled={nextPageDisabled}
             />
         </div>
