@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Link from 'next/link';
 
 import { Movie } from '@api/movieApi';
 import { BlockWrapper } from '@components/BlockWrapper';
@@ -8,7 +9,6 @@ import { ImageSnippet } from '@components/ImageSnippet';
 import { MovieInfoItem } from './MovieInfoItem';
 
 import styles from './MovieSnippet.module.css';
-import Link from 'next/link';
 
 type MovieSnippetProps = Movie;
 

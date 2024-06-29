@@ -1,14 +1,14 @@
+import { useEffect } from 'react';
 import cn from 'classnames';
 
 import { Header } from '@components/Header';
+import { LocalStorageKey } from '@helpers/localStorage';
+import { setIsAuthorized } from '@store/authorizationSlice';
+import { useAppDispatch } from '@store/store';
 
 import { AuthorizationControl } from './AuthorizationControl/AuthorizationControl';
 
 import styles from './PageHeader.module.css';
-import { LocalStorageKey } from '@helpers/localStorage';
-import { setIsAuthorized } from '@store/authorizationSlice';
-import { useAppDispatch } from '@store/store';
-import { useEffect } from 'react';
 
 export const PageHeader = () => {
     const dispatch = useAppDispatch();

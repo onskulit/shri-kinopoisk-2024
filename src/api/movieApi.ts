@@ -1,7 +1,7 @@
 import { apiUrl } from '@helpers/env';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-type MovieListParams = {
+export type MovieListParams = {
     title?: string;
     genre?: string;
     release_year?: string;
@@ -19,7 +19,7 @@ export type Movie = {
     rating: number;
 };
 
-type MovieListResponse = {
+export type MovieListResponse = {
     search_result: Movie[];
 };
 
@@ -36,16 +36,25 @@ export const movieApi = createApi({
     reducerPath: 'movieApi',
     baseQuery: fetchBaseQuery({ baseUrl: apiUrl }),
     endpoints: (builder) => ({
-        getMovieList: builder.query<MovieListResponse, MovieListParams>({
-            query: (params) => ({
-                url: 'search',
-                params,
-            }),
-        }),
         getMovieById: builder.query<SpecificMovie, MovieId>({
             query: (id) => `movie/${id}`,
         }),
     }),
 });
 
-export const { useGetMovieListQuery, useGetMovieByIdQuery } = movieApi;
+export const { useGetMovieByIdQuery } = movieApi;
+
+export const getMovieList = async (params?: MovieListParams) => {
+    try {
+        const requestParams = new URLSearchParams(params);
+        const response = await fetch(`${apiUrl}search?${requestParams}`, {
+            cache: 'no-store',
+        });
+
+        const data: MovieListResponse = await response.json();
+
+        return { data: data, isError: false };
+    } catch {
+        return { data: null, isError: true };
+    }
+};
