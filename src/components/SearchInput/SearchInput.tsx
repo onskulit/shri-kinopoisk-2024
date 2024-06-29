@@ -30,23 +30,21 @@ export const SearchInput: FC = () => {
     );
 
     return (
-        <Suspense>
-            <div className={styles.container}>
-                <Input
-                    icon={
-                        <SearchIcon
-                            width={16}
-                            height={16}
-                            color="secondary-light"
-                        />
-                    }
-                    id="title"
-                    value={title}
-                    onChange={onChange}
-                    placeholder="Название фильма"
-                    isClearable
-                />
-            </div>
-        </Suspense>
+        <div className={styles.container}>
+            <Input
+                icon={
+                    <SearchIcon
+                        width={16}
+                        height={16}
+                        color="secondary-light"
+                    />
+                }
+                id="title"
+                value={title}
+                onChange={onChange}
+                placeholder="Название фильма"
+                isClearable
+            />
+        </div>
     );
 };
