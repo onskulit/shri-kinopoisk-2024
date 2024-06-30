@@ -7,6 +7,8 @@ import { SearchInput } from '@components/SearchInput';
 
 import styles from './page.module.css';
 
+export const dynamic = 'force-dynamic';
+
 type MainPageProps = {
     searchParams: MovieListParams;
 };
