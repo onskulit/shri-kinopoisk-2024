@@ -41,12 +41,13 @@ export const getMovieList = async (params?: MovieListParams) => {
         const data: MovieListResponse = await response.json();
 
         return { data, isError: false };
-    } catch {
+    } catch (error) {
+        console.error('getMovieList method error', error);
         return { data: null, isError: true };
     }
 };
 
-export const getMovie = async (id: string) => {
+export const getMovieById = async (id: string) => {
     try {
         const response = await fetch(`${apiUrl}movie/${id}`, {
             next: { tags: [`movie-${id}`] },
@@ -55,7 +56,8 @@ export const getMovie = async (id: string) => {
         const movie: SpecificMovie = await response.json();
 
         return { movie, isError: false };
-    } catch {
+    } catch (error) {
+        console.error('getMovieById method error', error);
         return { data: null, isError: true };
     }
 };

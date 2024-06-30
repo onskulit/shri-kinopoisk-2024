@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { FC, Suspense } from 'react';
 
 import { getMovieList, MovieListParams } from '@api/movieApi';
 import { Filters } from '@components/Filters';
@@ -11,7 +11,7 @@ type MainPageProps = {
     searchParams: MovieListParams;
 };
 
-const MainPage = async ({ searchParams }: MainPageProps) => {
+const MainPage: FC<MainPageProps> = async ({ searchParams }) => {
     const { data, isError } = await getMovieList(searchParams);
 
     return (
