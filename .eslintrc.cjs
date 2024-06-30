@@ -12,7 +12,10 @@ module.exports = {
     rules: {
         'react-refresh/only-export-components': [
             'warn',
-            { allowConstantExport: true },
+            {
+                allowConstantExport: true,
+                allowExportNames: ['generateStaticParams'],
+            },
         ],
         'simple-import-sort/imports': 'error',
         'simple-import-sort/exports': 'error',

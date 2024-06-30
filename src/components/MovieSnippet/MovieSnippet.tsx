@@ -6,6 +6,7 @@ import { BlockWrapper } from '@components/BlockWrapper';
 import { Header } from '@components/Header';
 import { ImageSnippet } from '@components/ImageSnippet';
 import { MovieRating } from '@components/MovieRating';
+import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl';
 
 import { MovieInfoItem } from './MovieInfoItem';
 
@@ -18,20 +19,19 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
     title,
     description,
     genre,
-    poster,
     release_year: releaseYear,
 }) => {
     const onStarsClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
         e.preventDefault();
 
     return (
-        <Link to={`/movie/${id}`}>
+        <Link href={`/movie/${id}`}>
             <BlockWrapper className={styles.container}>
                 <ImageSnippet
                     alt="Постер фильма"
                     size="s"
                     className={styles.poster}
-                    src={poster}
+                    src={getMoviePosterUrl(id)}
                 />
                 <Header as="h2">{title}</Header>
                 <div className={styles.info}>

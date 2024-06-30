@@ -18,8 +18,6 @@ export const useSetSearchParams = (key: Key) => {
                 (key === 'title' && value === '') ||
                 (key !== 'title' && value === '0')
             ) {
-                console.log(value);
-
                 params.delete(key);
             } else {
                 params.set(key, value);

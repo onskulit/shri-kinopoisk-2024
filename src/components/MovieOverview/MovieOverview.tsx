@@ -1,18 +1,19 @@
 import cn from 'classnames';
 
+import { SpecificMovie } from '@api/movieApi';
 import { ImageSnippet } from '@components/ImageSnippet';
 import { MovieInfoBlock } from '@components/MovieInfoBlock';
 import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl';
 import { WithClassName } from '@helpers/types';
-import { useGetMovieById } from '@hooks/useGetMovieById';
 
 import styles from './MovieOverview.module.css';
 
-type MovieOverviewProps = WithClassName;
+type MovieOverviewProps = {
+    movie?: SpecificMovie;
+} & WithClassName;
 
-export const MovieOverview = (props: MovieOverviewProps) => {
-    const { className } = props;
-    const { movie } = useGetMovieById();
+export const MovieOverview = async (props: MovieOverviewProps) => {
+    const { className, movie } = props;
 
     if (!movie) {
         return null;
