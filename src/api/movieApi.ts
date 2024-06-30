@@ -1,5 +1,4 @@
 import { apiUrl } from '@helpers/env';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export type MovieListParams = {
     title?: string;
@@ -31,18 +30,6 @@ export type Actor = {
     name: string;
     photo: string;
 };
-
-export const movieApi = createApi({
-    reducerPath: 'movieApi',
-    baseQuery: fetchBaseQuery({ baseUrl: apiUrl }),
-    endpoints: (builder) => ({
-        getMovieById: builder.query<SpecificMovie, MovieId>({
-            query: (id) => `movie/${id}`,
-        }),
-    }),
-});
-
-export const { useGetMovieByIdQuery } = movieApi;
 
 export const getMovieList = async (params?: MovieListParams) => {
     try {
