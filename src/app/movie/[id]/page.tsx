@@ -1,4 +1,7 @@
-import { getMovie, getMovieList } from '@api/movieApi';
+import { FC } from 'react';
+import { notFound } from 'next/navigation';
+
+import { getMovieById, getMovieList } from '@api/movieApi';
 import { ErrorText } from '@components/ErrorText';
 import { MovieActors } from '@components/MovieActors';
 import { MovieOverview } from '@components/MovieOverview';
@@ -8,18 +11,24 @@ import styles from './page.module.css';
 
 type MoviePageProps = {
     params: {
-        id: string;
+        id?: string;
     };
 };
 
-export async function generateStaticParams() {
+export const generateStaticParams = async () => {
     const { data } = await getMovieList();
 
     return (data?.search_result || []).map(({ id }) => ({ id }));
-}
+};
 
-const MoviePage = async ({ params }: MoviePageProps) => {
-    const { movie, isError } = await getMovie(params.id);
+const MoviePage: FC<MoviePageProps> = async ({ params }) => {
+    const { id } = params;
+
+    if (!id) {
+        notFound();
+    }
+
+    const { movie, isError } = await getMovieById(id);
 
     if (isError) {
         return <ErrorText />;
