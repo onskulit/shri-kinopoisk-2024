@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, Suspense, useCallback, useLayoutEffect, useState } from 'react';
+import { FC, useCallback, useLayoutEffect, useState } from 'react';
 
 import { Input } from '@components/Input/Input';
 import { SearchIcon } from '@components/SearchIcon';

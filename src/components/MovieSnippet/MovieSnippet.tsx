@@ -5,6 +5,7 @@ import { Movie } from '@api/movieApi';
 import { BlockWrapper } from '@components/BlockWrapper';
 import { Header } from '@components/Header';
 import { ImageSnippet } from '@components/ImageSnippet';
+import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl';
 
 import { MovieInfoItem } from './MovieInfoItem';
 
@@ -17,7 +18,6 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
     title,
     description,
     genre,
-    poster,
     release_year: releaseYear,
 }) => (
     <Link href={`/movie/${id}`}>
@@ -26,7 +26,7 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
                 alt="Постер фильма"
                 size="s"
                 className={styles.poster}
-                src={poster}
+                src={getMoviePosterUrl(id)}
             />
             <Header as="h2">{title}</Header>
             <div className={styles.info}>

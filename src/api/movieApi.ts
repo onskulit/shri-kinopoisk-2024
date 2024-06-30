@@ -48,12 +48,26 @@ export const getMovieList = async (params?: MovieListParams) => {
     try {
         const requestParams = new URLSearchParams(params);
         const response = await fetch(`${apiUrl}search?${requestParams}`, {
-            cache: 'no-store',
+            next: { tags: ['first10'] },
         });
 
         const data: MovieListResponse = await response.json();
 
-        return { data: data, isError: false };
+        return { data, isError: false };
+    } catch {
+        return { data: null, isError: true };
+    }
+};
+
+export const getMovie = async (id: string) => {
+    try {
+        const response = await fetch(`${apiUrl}movie/${id}`, {
+            next: { tags: [`movie-${id}`] },
+        });
+
+        const movie: SpecificMovie = await response.json();
+
+        return { movie, isError: false };
     } catch {
         return { data: null, isError: true };
     }
