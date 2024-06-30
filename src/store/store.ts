@@ -1,15 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { authorizationApi } from '@api/authorizationApi';
-import { movieApi,movieApiWithAuth } from '@api/movieApi';
+import { movieApi, movieApiWithAuth } from '@api/movieApi';
 import { configureStore } from '@reduxjs/toolkit';
 
 import { authorizationSlice } from './authorizationSlice';
-import { searchSlice } from './searchSlice';
 
 export const store = configureStore({
     reducer: {
-        search: searchSlice.reducer,
         [movieApi.reducerPath]: movieApi.reducer,
         [movieApiWithAuth.reducerPath]: movieApiWithAuth.reducer,
         [authorizationApi.reducerPath]: authorizationApi.reducer,

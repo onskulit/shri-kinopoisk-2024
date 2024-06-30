@@ -12,7 +12,7 @@ export const useGetMovieList = () => {
     const years = params.get('years');
 
     const { data, isLoading, isFetching, isError } = useGetMovieListQuery({
-        page: page || undefined,
+        page: page ? parseInt(page, 10) : undefined,
         title: title || undefined,
         genre: genre || undefined,
         release_year: years || undefined,
