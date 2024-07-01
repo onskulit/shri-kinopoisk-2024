@@ -24,7 +24,7 @@ export const useSetSearchParams = (key: Key) => {
             }
 
             // обнуляем значение page, если прокидываем новое значение фильтра
-            if (key === 'genre' || key === 'years') {
+            if (key === 'genre' || key === 'release_year') {
                 params.delete('page');
             }
 

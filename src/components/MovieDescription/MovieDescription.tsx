@@ -1,8 +1,14 @@
+import { FC } from 'react';
+
+import { SpecificMovie } from '@api/movieApi';
 import { Row } from '@components/Row';
 import { Text } from '@components/Text';
-import { useGetMovieById } from '@hooks/useGetMovieById';
 
 import styles from './MovieDescription.module.css';
+
+type MovieDescriptionProps = {
+    movie: SpecificMovie;
+};
 
 const getRowTemplate = (
     key: string,
@@ -34,13 +40,7 @@ const getRowTemplate = (
     );
 };
 
-export const MovieDescription = () => {
-    const { movie } = useGetMovieById();
-
-    if (!movie) {
-        return null;
-    }
-
+export const MovieDescription: FC<MovieDescriptionProps> = ({ movie }) => {
     const { title, description, genre, rating, release_year } = movie;
 
     return (

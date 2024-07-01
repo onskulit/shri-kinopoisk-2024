@@ -26,7 +26,7 @@ export const MovieOverview = async (props: MovieOverviewProps) => {
                 src={getMoviePosterUrl(movie.id)}
                 alt={`poster-${movie.title}`}
             />
-            <MovieInfoBlock />
+            <MovieInfoBlock movie={movie} />
         </div>
     );
 };

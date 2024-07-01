@@ -23,10 +23,7 @@ const MainPage: FC<MainPageProps> = async ({ searchParams }) => {
                 <Suspense>
                     <SearchInput />
                 </Suspense>
-                <MovieList
-                    searchResult={data?.search_result}
-                    isError={isError}
-                />
+                <MovieList movieList={data} isError={isError} />
             </main>
         </div>
     );

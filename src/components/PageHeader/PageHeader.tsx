@@ -14,7 +14,7 @@ export const PageHeader = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        if (localStorage.getItem(LocalStorageKey.Token)) {
+        if (localStorage.getItem(LocalStorageKey.AuthToken)) {
             dispatch(setIsAuthorized(true));
         }
     }, []);
