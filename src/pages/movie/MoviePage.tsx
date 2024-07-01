@@ -1,6 +1,5 @@
 import { MovieActors } from '@components/MovieActors';
 import { MovieOverview } from '@components/MovieOverview';
-import { PageBlockItem } from '@components/PageBlockItem';
 import { PageBlocks } from '@components/PageBlocks';
 import { Spinner } from '@components/Spinner';
 import { useGetMovieById } from '@hooks/useGetMovieById';
@@ -15,17 +14,13 @@ export const MoviePage = () => {
     }
 
     if (isError) {
-        return 'Error fetching movie. Try again!';
+        return 'Error fetching movie!';
     }
 
     return (
         <PageBlocks className={styles.container}>
-            <PageBlockItem>
-                <MovieOverview />
-            </PageBlockItem>
-            <PageBlockItem>
-                <MovieActors />
-            </PageBlockItem>
+            <MovieOverview />
+            <MovieActors />
         </PageBlocks>
     );
 };

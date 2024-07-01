@@ -1,1 +1,1 @@
-export { StarList } from './StarsList';
+export { StarsList } from './StarsList';

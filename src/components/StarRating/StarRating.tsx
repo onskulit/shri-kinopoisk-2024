@@ -1,10 +1,8 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 
-import { StarRatingLabel } from '@components/StarRatingLabel';
-import { StarList } from '@components/StarsList';
+import { StarsList } from '@components/StarsList';
 
 type StarRatingProps = {
-    defaultTextLabel: string;
     totalStars?: number;
     initialRating?: number;
     onRatingChange?: (rating: number) => void;
@@ -14,7 +12,6 @@ export const StarRating: React.FC<StarRatingProps> = ({
     totalStars = 5,
     initialRating = 0,
     onRatingChange,
-    defaultTextLabel,
 }) => {
     const [rating, setRating] = useState(initialRating);
 
@@ -26,18 +23,11 @@ export const StarRating: React.FC<StarRatingProps> = ({
         [onRatingChange]
     );
 
-    const labelText = useMemo(() => {
-        return rating !== 0 ? `Ваша оценка: ${rating}` : defaultTextLabel;
-    }, [defaultTextLabel, rating]);
-
     return (
-        <div>
-            <StarRatingLabel labelText={labelText} />
-            <StarList
-                rating={rating}
-                totalStars={totalStars}
-                handleRatingChange={handleRatingChange}
-            />
-        </div>
+        <StarsList
+            rating={rating}
+            totalStars={totalStars}
+            handleRatingChange={handleRatingChange}
+        />
     );
 };

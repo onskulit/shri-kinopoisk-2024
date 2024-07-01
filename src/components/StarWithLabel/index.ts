@@ -1,0 +1,1 @@
+export { StarWithLabel } from './StarWithLabel';
