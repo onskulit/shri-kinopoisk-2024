@@ -75,9 +75,3 @@
 .text-color-primary {
     color: var(--color-primary);
 }
-
-
-.text-font-family-monospace {
-    font-family: monospace;
-}
-

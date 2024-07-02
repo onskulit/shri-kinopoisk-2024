@@ -1,19 +1,16 @@
-import cn from 'classnames';
-
 import { Actor } from '@api/movieApi';
 import { ActorSnippet } from '@components/ActorSnippet';
+import { Carousel } from '@components/Carousel';
 import { WithClassName } from '@helpers/types';
-
-import styles from './ActorsList.module.css';
 
 type ActorsListProps = WithClassName & {
     actorsList: Actor[];
 };
 
 export const ActorsList = (props: ActorsListProps) => {
-    const { actorsList, className } = props;
+    const { actorsList } = props;
     return (
-        <div className={cn(styles.container, className)}>
+        <Carousel>
             {actorsList.map((actor, index) => (
                 <ActorSnippet
                     key={index}
@@ -21,6 +18,6 @@ export const ActorsList = (props: ActorsListProps) => {
                     photo={actor.photo}
                 />
             ))}
-        </div>
+        </Carousel>
     );
 };

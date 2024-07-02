@@ -1,13 +1,9 @@
 import { Text } from '@components/Text';
 
 type StarRatingLabelProps = {
-    labelText: string;
+    estimation: number;
 };
 
-export const StarRatingLabel = ({ labelText }: StarRatingLabelProps) => {
-    return (
-        <Text size="s" weight="bold" fontFamily="monospace">
-            {labelText}
-        </Text>
-    );
+export const StarRatingLabel = ({ estimation }: StarRatingLabelProps) => {
+    return <Text size="xxs">{estimation}</Text>;
 };

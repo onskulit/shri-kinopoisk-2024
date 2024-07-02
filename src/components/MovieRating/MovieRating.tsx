@@ -14,10 +14,6 @@ export const MovieRating = () => {
     }
 
     return (
-        <StarRating
-            defaultTextLabel="Оцените фильм"
-            onRatingChange={rateMovie}
-            initialRating={initialRating}
-        />
+        <StarRating onRatingChange={rateMovie} initialRating={initialRating} />
     );
 };

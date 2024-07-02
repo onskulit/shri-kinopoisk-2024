@@ -11,7 +11,6 @@ type TextProps = {
     as?: 'span' | 'div' | 'p';
     weight?: 'light' | 'regular' | 'medium' | 'bold' | 'extrabold';
     style?: 'normal' | 'italic';
-    fontFamily?: 'monospace' | 'inherit';
 } & PropsWithChildren &
     WithClassName;
 
@@ -21,7 +20,6 @@ export const Text = ({
     weight = 'regular',
     style = 'normal',
     color = 'dark',
-    fontFamily = 'inherit',
     children,
     className,
 }: TextProps) => (
@@ -31,8 +29,7 @@ export const Text = ({
             styles[`text-size-${size}`],
             styles[`text-weight-${weight}`],
             styles[`text-style-${style}`],
-            styles[`text-color-${color}`],
-            styles[`text-font-family-${fontFamily}`]
+            styles[`text-color-${color}`]
         )}
     >
         {children}

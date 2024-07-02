@@ -9,9 +9,26 @@ const getRowTemplate = (
     value: string | number,
     withLineBreak: boolean = false
 ) => {
-    const template = [`${key}:`, withLineBreak ? <br key={key} /> : ' ', value];
+    const keyTemplate = (
+        <Text key={key} weight="bold" size="s" as="span">
+            {key}:
+        </Text>
+    );
+
+    const valueTemplate = (
+        <Text
+            key={value}
+            size={withLineBreak ? 'xs' : 's'}
+            as={withLineBreak ? 'div' : 'span'}
+        >
+            {withLineBreak ? value : ` ${value}`}
+        </Text>
+    );
+
+    const template = [keyTemplate, valueTemplate];
+
     return (
-        <Text weight="light" size="xxs">
+        <Text weight="bold" size="s">
             {template}
         </Text>
     );
