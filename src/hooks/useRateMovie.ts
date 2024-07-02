@@ -1,14 +1,12 @@
 import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
 
 import { useRateMovieMutation } from '@api/movieApi';
 import { LocalStorageKey } from '@helpers/localStorage';
 import { assertIsDefined } from '@helpers/typesHelpers';
 import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
 
-export const useRateMovie = () => {
+export const useRateMovie = (id?: string) => {
     const [handleRateMovie] = useRateMovieMutation();
-    const { id } = useParams();
 
     const initialRating = useMemo(() => {
         if (!id) {
