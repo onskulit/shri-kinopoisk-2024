@@ -20,9 +20,3 @@
     flex-direction: column;
     gap: 12px;
 }
-
-.stars {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-}

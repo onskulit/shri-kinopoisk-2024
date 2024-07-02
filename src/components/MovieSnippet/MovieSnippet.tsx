@@ -5,10 +5,10 @@ import { Movie } from '@api/movieApi';
 import { BlockWrapper } from '@components/BlockWrapper';
 import { Header } from '@components/Header';
 import { ImageSnippet } from '@components/ImageSnippet';
-import { MovieRating } from '@components/MovieRating';
 import { getMoviePosterUrl } from '@helpers/getMoviePosterUrl';
 
 import { MovieInfoItem } from './MovieInfoItem';
+import { Stars } from './Stars';
 
 import styles from './MovieSnippet.module.css';
 
@@ -21,9 +21,6 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
     genre,
     release_year: releaseYear,
 }) => {
-    const onStarsClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-        e.preventDefault();
-
     return (
         <Link href={`/movie/${id}`}>
             <BlockWrapper className={styles.container}>
@@ -39,9 +36,7 @@ export const MovieSnippet: FC<MovieSnippetProps> = ({
                     <MovieInfoItem label="Год выпуска" value={releaseYear} />
                     <MovieInfoItem label="Описание" value={description} />
                 </div>
-                <div onClick={onStarsClick} className={styles.stars}>
-                    <MovieRating id={id} />
-                </div>
+                <Stars id={id} />
             </BlockWrapper>
         </Link>
     );

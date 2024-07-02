@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { useRateMovieMutation } from '@api/movieApi';
 import { LocalStorageKey } from '@helpers/localStorage';
@@ -9,19 +9,23 @@ import { useDebouncedCallback } from '@hooks/useDebouncedCallback';
 
 export const useRateMovie = (id?: string) => {
     const [handleRateMovie] = useRateMovieMutation();
+    const [savedRatings, setSavedRatings] = useState('0');
+
+    useEffect(() => {
+        setSavedRatings(
+            localStorage.getItem(LocalStorageKey.MoviesRatings) || '0'
+        );
+    }, []);
 
     const initialRating = useMemo(() => {
         if (!id) {
             return 0;
         }
 
-        const savedRatings = localStorage.getItem(
-            LocalStorageKey.MoviesRatings
-        );
         const parsed = savedRatings ? JSON.parse(savedRatings) : 0;
 
         return parsed[id] ?? 0;
-    }, [id]);
+    }, [id, savedRatings]);
 
     const fn = useDebouncedCallback(
         (newRate: number) => {
