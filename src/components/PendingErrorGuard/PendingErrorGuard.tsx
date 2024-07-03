@@ -7,8 +7,8 @@ import styles from './PendingErrorGuard.module.css';
 
 type PendingErrorGuardProps = {
     loaderSize?: number;
-    isLoading: boolean;
-    isError: boolean;
+    isLoading?: boolean;
+    isError?: boolean;
 };
 
 export const PendingErrorGuard: FC<

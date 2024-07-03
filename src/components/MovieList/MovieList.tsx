@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { MovieListResponse } from '@api/movieApi';
 import { EmptyState } from '@components/EmptyState';
-import { ErrorText } from '@components/ErrorText';
 import { Pagination } from '@components/Pagination';
+import { PendingErrorGuard } from '@components/PendingErrorGuard';
 
 import { MovieSnippet } from '../MovieSnippet';
 
@@ -14,12 +14,8 @@ type MovieListProps = {
     isError: boolean;
 };
 
-export const MovieList: FC<MovieListProps> = ({ movieList, isError }) => {
-    if (isError) {
-        return <ErrorText />;
-    }
-
-    return (
+export const MovieList: FC<MovieListProps> = ({ movieList, isError }) => (
+    <PendingErrorGuard isError={isError}>
         <section className={styles.container}>
             {movieList && movieList.search_result?.length ? (
                 <>
@@ -35,5 +31,5 @@ export const MovieList: FC<MovieListProps> = ({ movieList, isError }) => {
                 />
             )}
         </section>
-    );
-};
+    </PendingErrorGuard>
+);

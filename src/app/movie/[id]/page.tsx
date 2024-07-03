@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { notFound } from 'next/navigation';
 
 import { getMovieById, getMovieList } from '@api/movieApi';
-import { ErrorText } from '@components/ErrorText';
 import { MovieActors } from '@components/MovieActors';
 import { MovieOverview } from '@components/MovieOverview';
 import { PageBlocks } from '@components/PageBlocks';
+import { PendingErrorGuard } from '@components/PendingErrorGuard';
 
 import styles from './page.module.css';
 
@@ -30,15 +30,13 @@ const MoviePage: FC<MoviePageProps> = async ({ params }) => {
 
     const { movie, isError } = await getMovieById(id);
 
-    if (isError) {
-        return <ErrorText />;
-    }
-
     return (
-        <PageBlocks className={styles.container}>
-            <MovieOverview movie={movie} />
-            <MovieActors actors={movie?.actors || []} />
-        </PageBlocks>
+        <PendingErrorGuard isError={isError}>
+            <PageBlocks className={styles.container}>
+                <MovieOverview movie={movie} />
+                <MovieActors actors={movie?.actors || []} />
+            </PageBlocks>
+        </PendingErrorGuard>
     );
 };
 
