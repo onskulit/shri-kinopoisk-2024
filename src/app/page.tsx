@@ -1,4 +1,4 @@
-import { FC, Suspense } from 'react';
+import { FC } from 'react';
 
 import { getMovieList, MovieListParams } from '@api/movieApi';
 import { Filters } from '@components/Filters';
@@ -18,11 +18,12 @@ const MainPage: FC<MainPageProps> = async ({ searchParams }) => {
 
     return (
         <div className={styles.container}>
-            <Filters />
+            <Filters
+                genre={searchParams.genre}
+                releaseYear={searchParams.release_year}
+            />
             <main className={styles.main}>
-                <Suspense>
-                    <SearchInput />
-                </Suspense>
+                <SearchInput searchParamsTitle={searchParams.title || ''} />
                 <MovieList movieList={data} isError={isError} />
             </main>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useCallback, useLayoutEffect, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 
 import { Input } from '@components/Input/Input';
 import { SearchIcon } from '@components/SearchIcon';
@@ -9,18 +9,20 @@ import { useSetSearchParams } from '@hooks/useSetSearchParams';
 
 import styles from './SearchInput.module.css';
 
-export const SearchInput: FC = () => {
-    const [title, setTitle] = useState('');
+type SearchInputProps = {
+    searchParamsTitle: string;
+};
 
-    const { param, setSearchParams } = useSetSearchParams('title');
+export const SearchInput: FC<SearchInputProps> = ({ searchParamsTitle }) => {
+    const [title, setTitle] = useState(searchParamsTitle);
+
+    const { setSearchParams } = useSetSearchParams('title');
 
     const debouncedSetTitle = useDebouncedCallback(
         (title: string) => setSearchParams(title),
         500,
         []
     );
-
-    useLayoutEffect(() => setTitle(param || ''), [param]);
 
     const onChange = useCallback(
         (value: string) => {

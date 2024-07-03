@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 type Key = 'title' | 'genre' | 'release_year' | 'page';
 
 export const useSetSearchParams = (key: Key) => {
-    const { replace } = useRouter();
+    const { replace, refresh } = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const param = searchParams?.get(key) || undefined;
@@ -28,7 +28,8 @@ export const useSetSearchParams = (key: Key) => {
                 params.delete('page');
             }
 
-            replace(`${pathname}?${params.toString()}`);
+            replace(`${pathname}?${params.toString()}`, {});
+            refresh();
         },
         [searchParams, key, param, pathname]
     );
