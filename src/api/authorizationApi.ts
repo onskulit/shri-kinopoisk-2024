@@ -17,7 +17,7 @@ export const authorizationApi = createApi({
         loginUser: builder.mutation<AuthorizationResponse, AuthorizationParams>(
             {
                 query: (credentials) => ({
-                    url: 'login',
+                    url: '/login',
                     method: 'POST',
                     body: credentials,
                 }),

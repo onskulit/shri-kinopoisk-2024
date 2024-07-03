@@ -1,6 +1,7 @@
 import { apiUrl } from '@helpers/env';
-import { LocalStorageKey } from '@helpers/localStorage';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { LocalStorageKey } from '@helpers/localStorage.ts';
+
+import { revalidateTagAction } from '../app/actions.ts';
 
 export type MovieListParams = {
     title?: string;
@@ -36,7 +37,7 @@ export type Actor = {
 
 export type RateMovieRequest = {
     movieId: MovieId;
-    user_rate: number;
+    userRate: number;
 };
 
 export type RateMovieResponse = {
@@ -45,83 +46,10 @@ export type RateMovieResponse = {
     newTotalRatesCount: number;
 };
 
-export const movieApi = createApi({
-    reducerPath: 'movieApi',
-    baseQuery: fetchBaseQuery({ baseUrl: apiUrl }),
-    endpoints: (builder) => ({
-        getMovieById: builder.query<SpecificMovie, MovieId>({
-            query: (id) => `movie/${id}`,
-        }),
-    }),
-});
-
-const baseQueryWithAuth = fetchBaseQuery({
-    baseUrl: apiUrl,
-    prepareHeaders: async (headers) => {
-        const accessToken = localStorage.getItem(LocalStorageKey.AuthToken);
-
-        if (accessToken) {
-            headers.set('authorization', `Bearer ${accessToken}`);
-        }
-
-        return headers;
-    },
-});
-
-export const movieApiWithAuth = createApi({
-    reducerPath: 'authApi',
-    baseQuery: baseQueryWithAuth,
-    endpoints: (builder) => ({
-        rateMovie: builder.mutation<RateMovieResponse, RateMovieRequest>({
-            query: (request) => ({
-                url: 'rateMovie',
-                method: 'POST',
-                body: request,
-            }),
-            async onQueryStarted(request, { dispatch, queryFulfilled }) {
-                try {
-                    const {
-                        data: { newAverageRate, movieId },
-                    } = await queryFulfilled;
-
-                    const storedRatings = localStorage.getItem(
-                        LocalStorageKey.MoviesRatings
-                    );
-                    const parsedObject = storedRatings
-                        ? JSON.parse(storedRatings)
-                        : {};
-
-                    parsedObject[movieId] = request.user_rate;
-                    localStorage.setItem(
-                        LocalStorageKey.MoviesRatings,
-                        JSON.stringify(parsedObject)
-                    );
-
-                    dispatch(
-                        movieApi.util.updateQueryData(
-                            'getMovieById',
-                            movieId,
-                            (draft) => {
-                                draft.rating = newAverageRate;
-                            }
-                        )
-                    );
-                } catch {
-                    throw new Error(
-                        `Error during pessimistic updates. MovieId: ${request.movieId}`
-                    );
-                }
-            },
-        }),
-    }),
-});
-
-export const { useRateMovieMutation } = movieApiWithAuth;
-
 export const getMovieList = async (params?: MovieListParams) => {
     try {
         const requestParams = new URLSearchParams(params);
-        const response = await fetch(`${apiUrl}search?${requestParams}`, {
+        const response = await fetch(`${apiUrl}/search?${requestParams}`, {
             next: { tags: ['first10'] },
         });
 
@@ -136,13 +64,46 @@ export const getMovieList = async (params?: MovieListParams) => {
 
 export const getMovieById = async (id: string) => {
     try {
-        const response = await fetch(`${apiUrl}movie/${id}`, {
+        const response = await fetch(`${apiUrl}/movie/${id}`, {
             next: { tags: [`movie-${id}`] },
         });
 
         const movie: SpecificMovie = await response.json();
 
         return { movie, isError: false };
+    } catch (error) {
+        console.error('getMovieById method error', error);
+        return { data: null, isError: true };
+    }
+};
+
+export const rateMovie = async (request: RateMovieRequest) => {
+    try {
+        const headers = new Headers({
+            authorization: `Bearer ${localStorage.getItem(LocalStorageKey.AuthToken)}`,
+        });
+
+        const body = {
+            movieId: request.movieId,
+            user_rate: request.userRate,
+        };
+
+        const response = await fetch(`${apiUrl}/rateMovie`, {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers,
+        });
+
+        try {
+            await revalidateTagAction(`movie-${request.movieId}`);
+        } catch (_) {
+            console.error(
+                `Revalidation /movie/${request.movieId} handler is failed.`
+            );
+        }
+
+        const data: RateMovieResponse = await response.json();
+        return { data, isError: false };
     } catch (error) {
         console.error('getMovieById method error', error);
         return { data: null, isError: true };

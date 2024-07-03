@@ -1,24 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { authorizationApi } from '@api/authorizationApi';
-import { movieApi, movieApiWithAuth } from '@api/movieApi';
 import { configureStore } from '@reduxjs/toolkit';
 
 import { authorizationSlice } from './authorizationSlice';
 
 export const store = configureStore({
     reducer: {
-        [movieApi.reducerPath]: movieApi.reducer,
-        [movieApiWithAuth.reducerPath]: movieApiWithAuth.reducer,
         [authorizationApi.reducerPath]: authorizationApi.reducer,
         authorization: authorizationSlice.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat([
-            movieApi.middleware,
-            movieApiWithAuth.middleware,
-            authorizationApi.middleware,
-        ]),
+        getDefaultMiddleware().concat([authorizationApi.middleware]),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
