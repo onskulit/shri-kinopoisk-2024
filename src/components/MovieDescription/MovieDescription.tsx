@@ -34,7 +34,7 @@ const getRowTemplate = (
     const template = [keyTemplate, valueTemplate];
 
     return (
-        <Text weight="bold" size="s">
+        <Text weight="bold" size="s" as="span">
             {template}
         </Text>
     );
