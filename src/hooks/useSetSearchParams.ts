@@ -1,12 +1,11 @@
-'use client';
-
 import { useCallback } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { revalidateMainPage } from 'src/app/actions';
 
 type Key = 'title' | 'genre' | 'release_year' | 'page';
 
 export const useSetSearchParams = (key: Key) => {
-    const { replace, refresh } = useRouter();
+    const { replace } = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const param = searchParams?.get(key) || undefined;
@@ -28,8 +27,11 @@ export const useSetSearchParams = (key: Key) => {
                 params.delete('page');
             }
 
-            replace(`${pathname}?${params.toString()}`, {});
-            refresh();
+            if (params.size === 0) {
+                revalidateMainPage();
+            }
+
+            replace(`${pathname}?${params.toString()}`);
         },
         [searchParams, key, param, pathname]
     );

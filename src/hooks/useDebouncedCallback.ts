@@ -1,5 +1,3 @@
-'use client';
-
 import { useCallback, useRef } from 'react';
 
 export const useDebouncedCallback = <Params extends unknown[]>(
