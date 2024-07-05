@@ -1,8 +1,13 @@
 import { FC, PropsWithChildren } from 'react';
+import { Metadata } from 'next';
 
 import { LayoutProvider } from '@components/LayoutProvider';
 
 import './globals.css';
+
+export const metadata: Metadata = {
+    title: 'Фильмопоиск',
+};
 
 const AppLayout: FC<PropsWithChildren> = ({ children }) => {
     return (

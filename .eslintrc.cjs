@@ -14,7 +14,7 @@ module.exports = {
             'warn',
             {
                 allowConstantExport: true,
-                allowExportNames: ['generateStaticParams'],
+                allowExportNames: ['generateStaticParams', 'metadata'],
             },
         ],
         'simple-import-sort/imports': 'error',
