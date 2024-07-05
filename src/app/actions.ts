@@ -7,7 +7,5 @@ export async function revalidateTagAction(tag: string) {
 }
 
 export async function revalidateMainPage() {
-    console.log(12313);
-
     revalidatePath('/');
 }
